@@ -1,0 +1,205 @@
+/* ==========================================================================
+   ОСНОВНІ СТИЛІ ТА КОЛЬОРИ СТАЙЛІНГУ
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --sage-50: #f4f7f4;
+    --sage-100: #e3eae3;
+    --sage-200: #c7d6c7;
+    --sage-500: #688968;
+    --sage-600: #527052;
+    --sage-700: #425a42;
+    --warm-50: #faf8f5;
+    --warm-100: #f4efe6;
+    --stone-800: #292524;
+    --stone-900: #1c1917;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Inter', system-ui, -apple-system, sans-serif !important;
+    background-color: var(--warm-50);
+    color: var(--stone-800);
+    line-height: 1.6;
+}
+
+/* Чіткі заголовки без зливання */
+h1, h2, h3, h4 {
+    font-family: 'Inter', sans-serif !important;
+    letter-spacing: -0.02em;
+    color: var(--stone-900);
+}
+
+/* Шапка та кнопка навігації */
+header {
+    background-color: rgba(250, 248, 245, 0.95);
+    border-bottom: 1px solid #e7e5e4;
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.nav-container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo-block {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    text-decoration: none;
+    color: inherit;
+}
+
+.logo-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--sage-500);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+}
+
+/* Навігаційне меню */
+nav {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-btn {
+    background: transparent;
+    border: none;
+    padding: 0.6rem 1rem;
+    border-radius: 8px;
+    font-weight: 500;
+    color: #57534e;
+    cursor: pointer;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+}
+
+.nav-btn:hover, .nav-btn.active {
+    background-color: var(--sage-100);
+    color: var(--sage-700);
+    font-weight: 600;
+}
+
+/* Головні кнопки */
+.btn-primary {
+    background-color: var(--sage-600);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 12px rgba(82, 112, 82, 0.25);
+    transition: all 0.2s ease;
+}
+
+.btn-primary:hover {
+    background-color: var(--sage-700);
+    transform: translateY(-1px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: var(--stone-800);
+    border: 1px solid #d6d3d1;
+    padding: 0.75rem 1.75rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-outline:hover {
+    background-color: #f5f5f4;
+}
+
+/* Картки та сторінки */
+.page-content {
+    display: none;
+}
+
+.page-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(4px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Поліпшення карток послуг та запитів */
+.card-box {
+    background-color: white;
+    padding: 1.75rem;
+    border-radius: 1.25rem;
+    border: 1px solid #e7e5e4;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+/* Плавна анімація розгортання відповіді FAQ */
+.faq-answer-wrapper {
+    max-height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0, 1, 0, 1), opacity 0.3s ease-in-out;
+}
+
+.faq-answer-wrapper.open {
+    max-height: 500px; /* Достатня висота для розкритого тексту */
+    opacity: 1;
+    transition: max-height 0.4s ease-in-out, opacity 0.4s ease-in-out;
+}
+
+/* Плавний поворот іконки + у − */
+.faq-icon-bg .faq-icon {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.faq-icon-bg.active .faq-icon {
+    transform: rotate(180deg);
+}
+/* Початковий стан для елементів, які будуть проявлятися */
+.reveal-on-scroll {
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    will-change: opacity, transform;
+}
+
+/* Стан після появи на екрані */
+.reveal-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Затримки для послідовної появи карток у сітці (каскадний ефект) */
+.delay-100 { transition-delay: 0.1s; }
+.delay-200 { transition-delay: 0.2s; }
+.delay-300 { transition-delay: 0.3s; }
+.delay-400 { transition-delay: 0.4s; }
+.delay-500 { transition-delay: 0.5s; }
