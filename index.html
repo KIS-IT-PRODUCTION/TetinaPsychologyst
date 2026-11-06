@@ -3,1532 +3,1035 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Тетяна — Практикуюча психологиня, КПТ-терапевт</title>
-
-    <!-- Google Fonts -->
+    <title>Тетяна Лещишин — Психологиня в КПТ та в образно-фокусованому методі</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts: Cormorant Garamond for elegant headers & Montserrat for text -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/jpeg" href="Тетянасайт.jpg">
-    <!-- Tailwind CSS із розширеною конфігурацією CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        sage: {
-                            50: '#F4F7F5',
-                            100: '#E7EDE9',
-                            200: '#D2DDD7',
-                            300: '#AFBFC4',
-                            400: '#7E9B8F',
-                            500: '#5A7D6F',
-                            600: '#4A6B5D', // Головний фірмовий колір Sage
-                            700: '#3B574B',
-                            800: '#273C33', // Текстовий темно-зелений
-                            900: '#1A2923',
-                        },
-                        cream: {
-                            50: '#FAF8F5',  // Основне тепле тло
-                            100: '#F4EFE6',
-                            200: '#E6DCB8',
-                        },
-                        terracotta: {
-                            500: '#C88A58',
-                            600: '#B37645',
-                        }
-                    },
-                    fontFamily: {
-                        sans: ['Plus Jakarta Sans', 'sans-serif'],
-                        serif: ['Playfair Display', 'serif'],
-                    },
-                    boxShadow: {
-                        'soft': '0 10px 30px -5px rgba(26, 41, 35, 0.05)',
-                        'card': '0 20px 40px -15px rgba(26, 41, 35, 0.08)',
-                        'glow': '0 0 25px rgba(74, 107, 93, 0.18)',
-                    }
-                }
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              cream: {
+                50: '#FAF8F6',  // Warm soft white background
+                100: '#F5F0E8', 
+                200: '#EBE3D7', // Light border
+                300: '#DFD5C6',
+              },
+              beige: {
+                100: '#F3ECE2',
+                200: '#E7DDD0',
+                300: '#D5C7B4',
+                600: '#968875',
+                700: '#7A6F60',
+                800: '#5B5246',
+              },
+              charcoal: {
+                800: '#38322E',
+                900: '#2C2623', // Dark chocolate coffee tone for FAQ & Footer
+                950: '#1F1A17',
+              }
+            },
+            fontFamily: {
+              serif: ['Cormorant Garamond', 'serif'],
+              sans: ['Montserrat', 'sans-serif'],
             }
+          }
         }
+      }
     </script>
-
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest"></script>
-
+    
     <style>
-        /* Сплавний кастомний каскад стилів */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #FAF8F5;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #D2DDD7;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #5A7D6F;
-        }
+      body {
+        font-family: 'Montserrat', sans-serif;
+        color: #2C2623;
+        background-color: #FAF8F6;
+      }
+      
+      .font-serif-heading {
+        font-family: 'Cormorant Garamond', serif;
+      }
 
-        /* SPA Сторінки */
-        .page-content {
-            display: none;
-            opacity: 0;
-            transform: translateY(10px);
-            transition: opacity 0.35s ease, transform 0.35s ease;
-        }
-        .page-content.active {
-            display: block;
-            opacity: 1;
-            transform: translateY(0);
-        }
+      /* Custom scrollbar */
+      ::-webkit-scrollbar {
+        width: 8px;
+      }
+      ::-webkit-scrollbar-track {
+        background: #FAF8F6;
+      }
+      ::-webkit-scrollbar-thumb {
+        background: #D5C7B4;
+        border-radius: 4px;
+      }
+      ::-webkit-scrollbar-thumb:hover {
+        background: #7A6F60;
+      }
 
-        /* Активне меню */
-        .nav-link.active {
-            color: #4A6B5D;
-            background-color: #E7EDE9;
-            font-weight: 600;
-        }
+      /* Active nav indicator */
+      .nav-link.active {
+        color: #5B5246;
+        font-weight: 600;
+        position: relative;
+      }
+      .nav-link.active::after {
+        content: '';
+        position: absolute;
+        bottom: -4px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #7A6F60;
+        border-radius: 2px;
+      }
 
-        /* Активна вкладка трикутника */
-        .triangle-tab.active {
-            background-color: #4A6B5D;
-            color: #ffffff;
-            border-color: #4A6B5D;
-        }
+      /* Smooth modal animation */
+      .modal-content {
+        transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+      }
     </style>
 </head>
-<body class="bg-cream-50 text-sage-900 font-sans antialiased min-h-screen flex flex-col selection:bg-sage-200 selection:text-sage-900">
+<body class="antialiased selection:bg-beige-200 selection:text-charcoal-900">
 
-    <!-- ==================== TOAST СПОБІЩЕННЯ (Копіювання тощо) ==================== -->
-    <div id="toast" class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none">
-        <div class="bg-sage-900 text-white px-5 py-3.5 rounded-2xl shadow-2xl flex items-center gap-3 border border-sage-700/50">
-            <div id="toastIcon" class="w-6 h-6 rounded-full bg-sage-600 flex items-center justify-center text-xs font-bold">✓</div>
-            <span id="toastMessage" class="text-sm font-medium">Повідомлення скопійовано</span>
-        </div>
-    </div>
-
-    <!-- ==================== ШАПКА / НАВІГАЦІЯ ==================== -->
-    <header class="sticky top-0 z-40 bg-cream-50/90 backdrop-blur-md border-b border-sage-100/80 transition-all duration-300">
+    <!-- ==================== ENHANCED HEADER / NAVIGATION ==================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-cream-50/90 backdrop-blur-md border-b border-cream-200/80 transition-all duration-300 shadow-xs">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
             
-            <!-- Логотип -->
-            <a href="#" onclick="navigateTo('home'); return false;" class="flex items-center gap-3 group">
-                <div class="w-11 h-11 rounded-full overflow-hidden border-2 border-sage-500 shadow-soft transition-transform group-hover:scale-105 flex-shrink-0">
-                    <img src="Тетянасайт.jpg" alt="Тетяна — Психологиня, КПТ-терапевт" class="w-full h-full object-cover" onerror="this.onerror=null; this.src='https://placehold.co/100x100/4A6B5D/FFFFFF?text=%D0%A2';">
+            <!-- Branding & Title -->
+            <a href="#hero" class="flex flex-col group">
+                <div class="flex items-center space-x-2">
+                    <span class="font-serif-heading font-bold text-2xl sm:text-3xl text-charcoal-900 group-hover:text-beige-700 transition-colors tracking-tight">
+                        Тетяна Лещишин
+                    </span>
+                    <span class="hidden sm:inline-block text-[10px] uppercase font-semibold bg-beige-100 text-beige-800 px-2 py-0.5 rounded-full border border-beige-200">
+                        Психологиня
+                    </span>
                 </div>
-                <div>
-                    <span class="block text-lg font-serif font-bold text-sage-900 leading-tight">Тетяна</span>
-                    <span class="block text-xs text-sage-500 font-medium tracking-wide">Психологиня • КПТ-терапевт</span>
-                </div>
+                <span class="text-[11px] sm:text-xs text-beige-700 font-medium tracking-wide">
+                    КПТ та образно-фокусований метод
+                </span>
             </a>
 
-            <!-- Десктопна навігація -->
-            <nav class="hidden lg:flex items-center space-x-1 bg-white/80 p-1.5 rounded-2xl border border-sage-100 shadow-sm">
-                <button onclick="navigateTo('home')" class="nav-link text-sm px-4 py-2 rounded-xl text-sage-700 hover:text-sage-900 hover:bg-sage-50 transition" data-page="home">Головна</button>
-                <button onclick="navigateTo('about')" class="nav-link text-sm px-4 py-2 rounded-xl text-sage-700 hover:text-sage-900 hover:bg-sage-50 transition" data-page="about">Про мене</button>
-                <button onclick="navigateTo('services')" class="nav-link text-sm px-4 py-2 rounded-xl text-sage-700 hover:text-sage-900 hover:bg-sage-50 transition" data-page="services">Послуги та ціни</button>
-                <button onclick="navigateTo('rules')" class="nav-link text-sm px-4 py-2 rounded-xl text-sage-700 hover:text-sage-900 hover:bg-sage-50 transition" data-page="rules">Правила роботи</button>
-                <button onclick="navigateTo('contacts')" class="nav-link text-sm px-4 py-2 rounded-xl text-sage-700 hover:text-sage-900 hover:bg-sage-50 transition" data-page="contacts">Контакти</button>
+            <!-- Navigation Links -->
+            <nav class="hidden lg:flex items-center space-x-7 text-xs sm:text-sm font-medium text-charcoal-800">
+                <a href="#hero" class="nav-link active hover:text-beige-700 transition-colors py-1">Головна</a>
+                <a href="#philosophy" class="nav-link hover:text-beige-700 transition-colors py-1">Про мене</a>
+                <a href="#requests" class="nav-link hover:text-beige-700 transition-colors py-1">Запити</a>
+                <a href="#education" class="nav-link hover:text-beige-700 transition-colors py-1">Освіта</a>
+                <a href="#office" class="nav-link hover:text-beige-700 transition-colors py-1">Кабінет</a>
+                <a href="#rules" class="nav-link hover:text-beige-700 transition-colors py-1">Правила</a>
+                <a href="#contacts" class="nav-link hover:text-beige-700 transition-colors py-1">Контакти</a>
             </nav>
 
-            <!-- Швидка кнопка запису -->
-            <div class="hidden sm:flex items-center gap-3">
-                <button onclick="navigateTo('booking')" class="px-5 py-2.5 bg-sage-600 hover:bg-sage-700 text-white font-semibold text-sm rounded-xl transition shadow-soft hover:shadow-glow flex items-center gap-2">
-                    <i data-lucide="calendar" class="w-4 h-4"></i>
+            <!-- Phone Quick Link & Action Button -->
+            <div class="flex items-center space-x-3 sm:space-x-4">
+                
+                <!-- Direct Phone Quick Contact -->
+                <a href="tel:+380966981294" class="hidden xl:flex items-center space-x-2 text-xs font-semibold text-charcoal-800 hover:text-beige-700 bg-white px-3.5 py-2 rounded-full border border-cream-200 shadow-2xs transition-all hover:shadow-xs">
+                    <i class="fa-solid fa-phone text-beige-700"></i>
+                    <span>096 698 12 94</span>
+                </a>
+
+                <!-- CTA Button -->
+                <button onclick="openBookingModal()" class="bg-beige-700 hover:bg-beige-800 text-white font-medium px-5 sm:px-6 py-2.5 rounded-full text-xs sm:text-sm transition-all transform hover:scale-[1.02] active:scale-[0.98] shadow-sm flex items-center space-x-2">
+                    <i class="fa-regular fa-calendar-check text-sm"></i>
                     <span>Записатися</span>
                 </button>
-            </div>
 
-            <!-- Мобільна кнопка меню -->
-            <button id="mobileMenuBtn" class="lg:hidden p-2.5 rounded-xl text-sage-800 hover:bg-sage-100 transition focus:outline-none" aria-label="Відкрити меню">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+                <!-- Mobile Hamburger Button -->
+                <button onclick="toggleMobileMenu()" id="menu-btn" class="lg:hidden text-charcoal-900 p-2 focus:outline-none" aria-label="Відкрити меню">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
         </div>
 
-        <!-- Мобільне меню -->
-        <div id="mobileMenu" class="hidden lg:hidden bg-white border-b border-sage-100 px-4 pt-3 pb-6 space-y-2 shadow-card">
-            <button onclick="navigateTo('home')" class="block w-full text-left px-4 py-3 rounded-xl font-medium text-sage-800 hover:bg-sage-50 transition">Головна</button>
-            <button onclick="navigateTo('about')" class="block w-full text-left px-4 py-3 rounded-xl font-medium text-sage-800 hover:bg-sage-50 transition">Про мене</button>
-            <button onclick="navigateTo('services')" class="block w-full text-left px-4 py-3 rounded-xl font-medium text-sage-800 hover:bg-sage-50 transition">Послуги та ціни</button>
-            <button onclick="navigateTo('rules')" class="block w-full text-left px-4 py-3 rounded-xl font-medium text-sage-800 hover:bg-sage-50 transition">Правила роботи</button>
-            <button onclick="navigateTo('contacts')" class="block w-full text-left px-4 py-3 rounded-xl font-medium text-sage-800 hover:bg-sage-50 transition">Контакти</button>
-            <button onclick="navigateTo('booking')" class="block w-full text-left px-4 py-3 rounded-xl font-semibold text-sage-600 hover:bg-sage-50 transition">Записатися на прийом</button>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden bg-cream-50/98 backdrop-blur-lg border-b border-cream-200 px-6 pt-4 pb-6 space-y-3 shadow-xl">
+            <a href="#hero" onclick="toggleMobileMenu()" class="block text-charcoal-900 hover:text-beige-700 font-medium py-2 border-b border-cream-200/60">Головна</a>
+            <a href="#philosophy" onclick="toggleMobileMenu()" class="block text-charcoal-900 hover:text-beige-700 font-medium py-2 border-b border-cream-200/60">Про мене</a>
+            <a href="#requests" onclick="toggleMobileMenu()" class="block text-charcoal-900 hover:text-beige-700 font-medium py-2 border-b border-cream-200/60">Запити з якими працюю</a>
+            <a href="#education" onclick="toggleMobileMenu()" class="block text-charcoal-900 hover:text-beige-700 font-medium py-2 border-b border-cream-200/60">Освіта та кваліфікація</a>
+            <a href="#office" onclick="toggleMobileMenu()" class="block text-charcoal-900 hover:text-beige-700 font-medium py-2 border-b border-cream-200/60">Кабінет в Івано-Франківську</a>
+            <a href="#rules" onclick="toggleMobileMenu()" class="block text-charcoal-900 hover:text-beige-700 font-medium py-2 border-b border-cream-200/60">Правила співпраці</a>
+            <a href="#contacts" onclick="toggleMobileMenu()" class="block text-charcoal-900 hover:text-beige-700 font-medium py-2 border-b border-cream-200/60">Контакти</a>
+            
+            <div class="pt-2 space-y-2">
+                <a href="tel:+380966981294" class="flex items-center space-x-3 text-sm font-medium text-charcoal-900 bg-white p-3 rounded-xl border border-cream-200">
+                    <i class="fa-solid fa-phone text-beige-700"></i>
+                    <span>+38 (096) 698-12-94</span>
+                </a>
+                <div class="flex space-x-3 pt-1">
+                    <a href="https://t.me/Tanya_Leshchyshyn" target="_blank" class="flex-1 text-center py-2 bg-sky-50 text-sky-700 rounded-xl text-xs font-semibold border border-sky-100">
+                        <i class="fa-brands fa-telegram mr-1"></i> Telegram
+                    </a>
+                    <a href="https://www.instagram.com/tetiana.psychologistt?igsh=MTZwbHhrZGtvajgyZg%3D%3D" target="_blank" class="flex-1 text-center py-2 bg-pink-50 text-pink-700 rounded-xl text-xs font-semibold border border-pink-100">
+                        <i class="fa-brands fa-instagram mr-1"></i> Instagram
+                    </a>
+                </div>
+            </div>
         </div>
     </header>
 
-    <!-- ==================== ОСНОВНИЙ КОНТЕНТ (SPA) ==================== -->
-    <main class="flex-grow">
 
-        <!-- ==================== СТОРІНКА: ГОЛОВНА ==================== -->
-        <div id="page-home" class="page-content active">
+    <!-- ==================== HERO SECTION & BUSINESS CARD ==================== -->
+    <section id="hero" class="pt-28 md:pt-36 pb-16 md:pb-24 bg-cream-100 min-h-[85vh] flex items-center border-b border-cream-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 md:gap-12 items-center">
+                
+                <!-- Hero Left: Welcome Business Card & Philosophy -->
+                <div class="lg:col-span-7 space-y-6 sm:space-y-8">
+                    
+                    <!-- Location & Status Badge -->
+                    <div class="inline-flex items-center space-x-2 px-4 py-1.5 bg-white border border-beige-300 rounded-full text-xs font-medium text-beige-800 shadow-2xs">
+                        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                        <span>Івано-Франківськ, вул. Незалежності, 10А & Online</span>
+                    </div>
+
+                    <!-- Main Welcome Title -->
+                    <div>
+                        <h1 class="font-serif-heading text-4xl sm:text-5xl md:text-6xl text-charcoal-900 font-bold leading-[1.15] mb-3">
+                            Вітаю! Мене звати Тетяна Лещишин
+                        </h1>
+                        <p class="text-lg sm:text-xl text-beige-700 font-serif-heading italic">
+                            Практикуюча психологиня в КПТ та в образно-фокусованому методі
+                        </p>
+                    </div>
+
+                    <!-- Philosophy Business Card (Винесена на початок як візитка) -->
+                    <div class="bg-white p-6 sm:p-8 rounded-3xl border border-cream-200 shadow-sm space-y-4">
+                        <div class="flex items-center space-x-3 text-beige-700 font-serif-heading text-xl font-semibold">
+                            <i class="fa-solid fa-quote-left text-beige-600"></i>
+                            <span>Філософія моєї роботи</span>
+                        </div>
+                        <p class="text-charcoal-800 text-base sm:text-lg leading-relaxed font-light">
+                            Я вірю, що кожна людина має внутрішній ресурс для подолання складних життєвих періодів. Моє завдання як психологині — створити для вас бережливий, безпечний та підтримуючий простір, де ви зможете краще зрозуміти себе, знайти внутрішню опору та повернути емоційний баланс.
+                        </p>
+                        <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                            У роботі поєдную когнітивно-поведінкову терапію та образно-фокусований метод, дбайливо підбираючи інструменти під ваші індивідуальні потреби.
+                        </p>
+                    </div>
+
+                    <!-- Quick Action Buttons -->
+                    <div class="flex flex-wrap gap-4 pt-2">
+                        <button onclick="openBookingModal()" class="bg-beige-700 hover:bg-beige-800 text-white font-medium px-8 py-3.5 rounded-full text-base transition-all shadow-md">
+                            <i class="fa-regular fa-calendar-check mr-2"></i>Записатися на консультацію
+                        </button>
+                        <a href="#requests" class="border border-beige-700 text-beige-800 hover:bg-white font-medium px-7 py-3.5 rounded-full text-base transition-all shadow-2xs">
+                            Переглянути запити <i class="fa-solid fa-arrow-down-long ml-2 text-xs"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- Hero Right: Photo & Quick Badge -->
+                <div class="lg:col-span-5 flex justify-center lg:justify-end">
+                    <div class="relative w-full max-w-md">
+                        <!-- Photo Frame -->
+                        <div class="overflow-hidden rounded-[40px] shadow-md bg-beige-200 aspect-[4/5] border-4 border-white relative">
+                            <img 
+                                src="/Тетянасайт.jpg" 
+                                alt="Психологиня Тетяна Лещишин" 
+                                class="w-full h-full object-cover object-top hover:scale-102 transition-transform duration-700"
+                                onerror="this.onerror=null; this.src='https://placehold.co/600x750/E7DDD0/2C2623?text=%D0%A2%D0%B5%D1%82%D1%8F%D0%BD%D0%B0+%D0%9B%D0%B5%D1%89%D0%B8%D1%88%D0%B8%D0%BD';"
+                            />
+                        </div>
+
+                        <!-- Floating Membership Badge -->
+                        <div class="absolute -bottom-6 left-6 right-6 bg-white/95 backdrop-blur-md p-4 rounded-2xl shadow-lg border border-cream-200 flex items-center space-x-4">
+                            <div class="w-12 h-12 bg-cream-100 text-beige-700 rounded-xl flex items-center justify-center shrink-0 text-xl">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-xs font-semibold text-charcoal-900 uppercase tracking-wider">Членкиня УАКПТ</h4>
+                                <p class="text-xs text-gray-500">Українська асоціація когнітивно-поведінкової терапії</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ==================== PHILOSOPHY & PRINCIPLES ==================== -->
+    <section id="philosophy" class="py-20 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             
-           <!-- ==================== HERO-СЕКЦІЯ З ЕСТЕТИЧНИМ ФОНОМ ==================== -->
-                <section class="relative py-12 sm:py-20 lg:py-24 bg-gradient-to-b from-sage-50/90 via-warm-50/95 to-warm-50 overflow-hidden w-full">
-                    
-                    <!-- Естетичне фонове зображення з низькою прозорістю -->
-                    <div class="absolute inset-0 -z-10 pointer-events-none overflow-hidden select-none">
-                        <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 mix-blend-multiply filter blur-[1px] transform scale-105" 
-                            style="background-image: url('https://mhealthzdravo-website-app.s3.eu-central-1.amazonaws.com/tests/1722946944.3932.jpg');">
-                        </div>
-                        <!-- М'який градієнтний оверлей для плавного переходу по краях -->
-                        <div class="absolute inset-0 bg-gradient-to-b from-sage-50/80 via-transparent to-warm-50"></div>
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold text-beige-700 uppercase tracking-widest block mb-2">Принципи роботи</span>
+                <h2 class="font-serif-heading text-3xl sm:text-4xl text-charcoal-900 font-semibold mb-4">Як відбуваються наші зустрічі</h2>
+                <p class="text-gray-600 text-base">
+                    Кожна консультація побудована на взаємоповазі, рівності та повній безпеці для вашого емоційного стану.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Principle 1 -->
+                <div class="bg-white p-8 rounded-3xl border border-cream-200 shadow-2xs hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-cream-100 text-beige-700 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                        <i class="fa-solid fa-heart-circle-check"></i>
                     </div>
-
-                    <!-- Декоративні м'які кольорові відблиски -->
-                    <div class="absolute top-0 right-1/4 w-96 h-96 bg-sage-200/30 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-                    <div class="absolute bottom-10 left-10 w-80 h-80 bg-warm-200/40 rounded-full blur-3xl -z-10 pointer-events-none"></div>
-
-                    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
-                            
-                            <!-- Лівий текстовий блок -->
-                            <div class="lg:col-span-7 space-y-7">
-                                
-                                <!-- 1. Бейдж -->
-                                <div class="animate-hero-stagger-1 opacity-0">
-                                    <span class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-sage-100/90 backdrop-blur-md text-sage-800 text-xs font-bold uppercase tracking-wider border border-sage-200/80 shadow-xs">
-                                        <span class="w-2 h-2 rounded-full bg-sage-600 animate-pulse"></span>
-                                        КПТ-терапевт • Івано-Франківськ & Online
-                                    </span>
-                                </div>
-                                
-                                <!-- 2. Головний заголовок -->
-                                <h1 class="animate-hero-stagger-2 opacity-0 text-3xl sm:text-5xl lg:text-6xl font-serif font-bold text-sage-900 leading-[1.15] tracking-tight">
-                                    Безпечний простір для відновлення <span class="relative inline-block text-sage-700 underline decoration-sage-300 decoration-wavy decoration-2">внутрішньої опори</span> та емоційного балансу
-                                </h1>
-                                
-                                <!-- 3. Виділений підзаголовок-картка -->
-                                <div class="animate-hero-stagger-3 opacity-0 relative p-5 sm:p-6 rounded-2xl bg-white/90 backdrop-blur-md border-l-4 border-sage-600 border-y border-r border-sage-100 shadow-soft space-y-3">
-                                    <p class="text-sage-900 text-base sm:text-lg font-medium leading-relaxed">
-                                        Вітаю! Мене звати <span class="font-bold text-sage-900 underline decoration-sage-300">Тетяна</span>. 
-                                        Я практична психологиня, працюю у доказових методах <span class="px-1.5 py-0.5 rounded bg-sage-100 text-sage-800 font-semibold">когнітивно-поведінкової терапії (КПТ)</span> та <span class="px-1.5 py-0.5 rounded bg-sage-100 text-sage-800 font-semibold">образно-фокусованої КПТ</span>.
-                                    </p>
-                                    <p class="text-sage-700 text-sm sm:text-base leading-relaxed pt-1 border-t border-sage-100/80">
-                                        ✨ Допомагаю <strong class="text-sage-900 font-semibold">приборкати тривогу</strong>, <strong class="text-sage-900 font-semibold">подолати депресивні стани</strong> та віднайти <strong class="text-sage-900 font-semibold">гармонію з собою</strong>.
-                                    </p>
-                                </div>
-
-                                <!-- 4. Кнопки дій / CTA -->
-                                <div class="animate-hero-stagger-4 opacity-0 pt-2 flex flex-wrap items-center gap-4">
-                                    <button onclick="navigateTo('booking')" type="button" class="px-7 py-4 bg-sage-700 hover:bg-sage-800 text-white font-semibold rounded-2xl transition shadow-md hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 flex items-center gap-2.5">
-                                        <i data-lucide="calendar" class="w-5 h-5"></i>
-                                        <span>Записатися на консультацію</span>
-                                    </button>
-                                    <button onclick="navigateTo('about')" type="button" class="px-7 py-4 bg-white/90 backdrop-blur-md border border-sage-200 hover:bg-sage-50 text-sage-800 font-semibold rounded-2xl transition shadow-xs hover:-translate-y-0.5 flex items-center gap-2">
-                                        <span>Дізнатися більше</span>
-                                        <i data-lucide="arrow-right" class="w-4 h-4 text-sage-600"></i>
-                                    </button>
-                                </div>
-
-                            </div>
-
-                            <!-- Правий блок з фото -->
-                            <div class="lg:col-span-5 animate-hero-stagger-5 opacity-0">
-                                <div class="relative w-full max-w-md mx-auto">
-                                    <!-- Декоративна рамка під фото -->
-                                    <div class="absolute -inset-2 rounded-3xl bg-gradient-to-tr from-sage-300 via-sage-100 to-sage-200 blur-sm transform rotate-1"></div>
-                                    
-                                    <div class="relative rounded-3xl bg-sage-200 overflow-hidden shadow-card border border-white">
-                                        <img src="Тетянасайт.jpg" alt="Тетяна - Практичний психолог, КПТ-терапевт" class="w-full h-auto object-cover block transform hover:scale-102 transition duration-500">
-                                    </div>
-
-                                    <!-- Плаваюча картка-акцент -->
-                                    <div class="absolute -bottom-5 -left-5 bg-white/95 backdrop-blur-md p-4 rounded-2xl border border-sage-100 shadow-xl flex items-center gap-3">
-                                        <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-700 flex items-center justify-center">
-                                            <i data-lucide="shield-check" class="w-6 h-6"></i>
-                                        </div>
-                                        <div>
-                                            <p class="text-xs font-bold text-sage-900">Членкиня УАКПТ</p>
-                                            <p class="text-[11px] text-sage-600">Доказова психотерапія</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </section>
-
-                <!-- Стилі послідовної анімації -->
-                <style>
-                @keyframes heroFadeStagger {
-                    0% {
-                        opacity: 0;
-                        transform: translateY(24px);
-                    }
-                    100% {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
-
-                .animate-hero-stagger-1 { animation: heroFadeStagger 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.1s forwards; }
-                .animate-hero-stagger-2 { animation: heroFadeStagger 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.25s forwards; }
-                .animate-hero-stagger-3 { animation: heroFadeStagger 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards; }
-                .animate-hero-stagger-4 { animation: heroFadeStagger 0.7s cubic-bezier(0.16, 1, 0.3, 1) 0.55s forwards; }
-                .animate-hero-stagger-5 { animation: heroFadeStagger 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.7s forwards; }
-                </style>
-
-            <!-- КВІЗ-ТЕСТ САМОДІАГНОСТИКИ -->
-            <section class="py-16 bg-white border-y border-sage-100">
-                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="text-center max-w-2xl mx-auto mb-10 space-y-3">
-                        <span class="inline-block px-3.5 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold uppercase tracking-wider">
-                            Самодіагностичний тест
-                        </span>
-                        <h2 class="text-2xl sm:text-3xl font-serif font-bold text-sage-900">
-                            Чи підходить вам метод КПТ?
-                        </h2>
-                        <p class="text-sage-600 text-sm">
-                            Дайте відповідь на 3 короткі запитання, щоб дізнатися, наскільки ефективно когнітивно-поведінкова терапія допоможе у вашій ситуації.
-                        </p>
-                    </div>
-
-                    <!-- Каркас квізу -->
-                    <div class="bg-cream-50 rounded-3xl p-6 sm:p-10 border border-sage-200/80 shadow-soft relative overflow-hidden" id="quizContainer">
-                        
-                        <!-- Крок 1 -->
-                        <div class="quiz-step" id="quizStep1">
-                            <div class="flex items-center justify-between mb-6">
-                                <span class="text-xs font-bold text-sage-500 uppercase tracking-wider">Питання 1 з 3</span>
-                                <span class="text-xs bg-sage-200 text-sage-800 px-2.5 py-1 rounded-full font-semibold">33%</span>
-                            </div>
-                            <h3 class="text-lg sm:text-xl font-semibold text-sage-900 mb-6">Що найкраще описує ваш поточний стан?</h3>
-                            <div class="space-y-3">
-                                <button onclick="answerQuiz(1, 'anxiety')" class="w-full text-left p-4 rounded-2xl bg-white border border-sage-200 hover:border-sage-500 hover:bg-sage-50 transition text-sage-800 text-sm font-medium flex items-center justify-between group">
-                                    <span>Надмірні переживання, тривога про майбутнє або панічні симптоми</span>
-                                    <i data-lucide="chevron-right" class="w-4 h-4 text-sage-400 group-hover:translate-x-1 transition-transform"></i>
-                                </button>
-                                <button onclick="answerQuiz(1, 'depression')" class="w-full text-left p-4 rounded-2xl bg-white border border-sage-200 hover:border-sage-500 hover:bg-sage-50 transition text-sage-800 text-sm font-medium flex items-center justify-between group">
-                                    <span>Відчуття апатії, втрата сил, інтересу до життя та сумування</span>
-                                    <i data-lucide="chevron-right" class="w-4 h-4 text-sage-400 group-hover:translate-x-1 transition-transform"></i>
-                                </button>
-                                <button onclick="answerQuiz(1, 'self')" class="w-full text-left p-4 rounded-2xl bg-white border border-sage-200 hover:border-sage-500 hover:bg-sage-50 transition text-sage-800 text-sm font-medium flex items-center justify-between group">
-                                    <span>Жорстка внутрішня критика, проблема з власними кордонами чи впевненістю</span>
-                                    <i data-lucide="chevron-right" class="w-4 h-4 text-sage-400 group-hover:translate-x-1 transition-transform"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Крок 2 -->
-                        <div class="quiz-step hidden" id="quizStep2">
-                            <div class="flex items-center justify-between mb-6">
-                                <span class="text-xs font-bold text-sage-500 uppercase tracking-wider">Питання 2 з 3</span>
-                                <span class="text-xs bg-sage-200 text-sage-800 px-2.5 py-1 rounded-full font-semibold">66%</span>
-                            </div>
-                            <h3 class="text-lg sm:text-xl font-semibold text-sage-900 mb-6">Якого формату роботи ви очікуєте від терапії?</h3>
-                            <div class="space-y-3">
-                                <button onclick="answerQuiz(2, 'structured')" class="w-full text-left p-4 rounded-2xl bg-white border border-sage-200 hover:border-sage-500 hover:bg-sage-50 transition text-sage-800 text-sm font-medium flex items-center justify-between group">
-                                    <span>Чіткої структури, зрозумілих інструментів та вимірюваних результатів</span>
-                                    <i data-lucide="chevron-right" class="w-4 h-4 text-sage-400 group-hover:translate-x-1 transition-transform"></i>
-                                </button>
-                                <button onclick="answerQuiz(2, 'support')" class="w-full text-left p-4 rounded-2xl bg-white border border-sage-200 hover:border-sage-500 hover:bg-sage-50 transition text-sage-800 text-sm font-medium flex items-center justify-between group">
-                                    <span>Підтримки, безпечного простору для висловлення важких почуттів</span>
-                                    <i data-lucide="chevron-right" class="w-4 h-4 text-sage-400 group-hover:translate-x-1 transition-transform"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Крок 3 -->
-                        <div class="quiz-step hidden" id="quizStep3">
-                            <div class="flex items-center justify-between mb-6">
-                                <span class="text-xs font-bold text-sage-500 uppercase tracking-wider">Питання 3 з 3</span>
-                                <span class="text-xs bg-sage-200 text-sage-800 px-2.5 py-1 rounded-full font-semibold">100%</span>
-                            </div>
-                            <h3 class="text-lg sm:text-xl font-semibold text-sage-900 mb-6">Чи готові ви застосовувати практичні вправи між зустрічами?</h3>
-                            <div class="space-y-3">
-                                <button onclick="finishQuiz(true)" class="w-full text-left p-4 rounded-2xl bg-white border border-sage-200 hover:border-sage-500 hover:bg-sage-50 transition text-sage-800 text-sm font-medium flex items-center justify-between group">
-                                    <span>Так, я прагну отримати практичні навички самодопомоги</span>
-                                    <i data-lucide="chevron-right" class="w-4 h-4 text-sage-400 group-hover:translate-x-1 transition-transform"></i>
-                                </button>
-                                <button onclick="finishQuiz(false)" class="w-full text-left p-4 rounded-2xl bg-white border border-sage-200 hover:border-sage-500 hover:bg-sage-50 transition text-sage-800 text-sm font-medium flex items-center justify-between group">
-                                    <span>Хочу спробувати під керівництвом та підтримкою терапевта</span>
-                                    <i data-lucide="chevron-right" class="w-4 h-4 text-sage-400 group-hover:translate-x-1 transition-transform"></i>
-                                </button>
-                            </div>
-                        </div>
-
-                        <!-- Результат квізу -->
-                        <div class="quiz-step hidden text-center space-y-6 py-4" id="quizResult">
-                            <div class="w-16 h-16 rounded-full bg-sage-100 text-sage-700 flex items-center justify-center mx-auto text-2xl font-bold">
-                                🎯
-                            </div>
-                            <div class="space-y-2">
-                                <h3 class="text-2xl font-serif font-bold text-sage-900">КПТ підходить вам на 95%!</h3>
-                                <p class="text-sage-700 text-sm max-w-lg mx-auto leading-relaxed">
-                                    Когнітивно-поведінкова терапія є методом першого вибору при вашому запиті. Вона допоможе розібратися з причинами тривоги/виснаження, змінити автоматичні думки та відновити контроль.
-                                </p>
-                            </div>
-                            <div class="pt-2 flex flex-col sm:flex-row items-center justify-center gap-3">
-                                <button onclick="navigateTo('booking')" class="px-6 py-3.5 bg-sage-600 hover:bg-sage-700 text-white font-semibold rounded-xl text-sm shadow-md transition">
-                                    Записатися на першу зустріч
-                                </button>
-                                <button onclick="resetQuiz()" class="px-6 py-3.5 bg-white border border-sage-200 text-sage-700 hover:bg-sage-50 font-semibold rounded-xl text-sm transition">
-                                    Пройти знову
-                                </button>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-          <!-- СЕКЦІЯ: УСІ 9 НАПРЯМКІВ РОБОТИ З ФОНОМ (OPACITY 50%) -->
-            <section id="queries-section" class="relative py-20 bg-cream-50 overflow-hidden">
-                
-                <!-- Фонове зображення з opacity-50 -->
-                <div class="absolute inset-0 pointer-events-none overflow-hidden select-none">
-                    <div class="absolute inset-0 bg-cover bg-center bg-no-repeat opacity-50 mix-blend-multiply filter blur-[0.5px] transform scale-105"
-                        style="background-image: url('https://ua.crp-wroclaw.com/blog/wp-content/uploads/2023/11/koncepcja-zdrowia-psychicznego-splatana-chaotyczny-mozg-vs-logiczny-mozg-osobowosc-i-emocje-renderowanie-3d-scaled.jpg');">
-                    </div>
-                    <!-- М'який градієнтний оверлей для виділення контенту -->
-                    <div class="absolute inset-0 bg-gradient-to-b from-cream-50/70 via-cream-50/30 to-cream-50/70"></div>
+                    <h3 class="font-serif-heading text-2xl font-semibold text-charcoal-900 mb-3">Бережливість та прийняття</h3>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        Без засуджень, оцінок чи нав'язування готових рішень. Ви можете бути собою у всіх своїх проявах та почуттях.
+                    </p>
                 </div>
 
-                <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    
-                    <div class="text-center max-w-3xl mx-auto mb-14 space-y-3">
-                        <span class="inline-block px-3.5 py-1 rounded-full bg-sage-100/90 backdrop-blur-md text-sage-800 text-xs font-semibold uppercase tracking-wider border border-sage-200 shadow-xs">
-                            Спеціалізація
-                        </span>
-                        <h2 class="text-3xl sm:text-4xl font-serif font-bold text-sage-900 drop-shadow-xs">
-                            З якими запитами я працюю
-                        </h2>
-                        <p class="text-sage-700 font-medium text-sm sm:text-base">
-                            Натисніть на картку, щоб дізнатися детальніше про прояви та формат допомоги.
-                        </p>
+                <!-- Principle 2 -->
+                <div class="bg-white p-8 rounded-3xl border border-cream-200 shadow-2xs hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-cream-100 text-beige-700 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                        <i class="fa-solid fa-lock"></i>
                     </div>
-
-                    <!-- Сітка карток (9 напрямків) -->
-                    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                        
-                        <!-- 1. ГТР та тривога -->
-                        <div onclick="openQueryModal('gtr')" class="bg-white/95 backdrop-blur-md border border-sage-100 p-7 rounded-3xl shadow-soft hover:shadow-card hover:border-sage-300 transition-all cursor-pointer group flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-50 text-sage-700 flex items-center justify-center font-bold text-2xl group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                                    🧠
-                                </div>
-                                <h3 class="text-xl font-bold text-sage-900 group-hover:text-sage-600 transition">
-                                    ГТР та надмірні переживання
-                                </h3>
-                                <p class="text-sage-600 text-sm leading-relaxed line-clamp-3">
-                                    Генералізований тривожний розлад, постійне очікування найгіршого, катастрофізація та тривога щодо здоров'я.
-                                </p>
-                            </div>
-                            <div class="pt-6 text-sage-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                <span>Детальніше</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-
-                        <!-- 2. Фобії -->
-                        <div onclick="openQueryModal('phobia')" class="bg-white/95 backdrop-blur-md border border-sage-100 p-7 rounded-3xl shadow-soft hover:shadow-card hover:border-sage-300 transition-all cursor-pointer group flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-50 text-sage-700 flex items-center justify-center font-bold text-2xl group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                                    🎯
-                                </div>
-                                <h3 class="text-xl font-bold text-sage-900 group-hover:text-sage-600 transition">
-                                    Фобії та специфічні страхи
-                                </h3>
-                                <p class="text-sage-600 text-sm leading-relaxed line-clamp-3">
-                                    Ірраціональні страхи конкретних ситуацій чи об'єктів, які обмежують свободу та комфорт у повсякденному житті.
-                                </p>
-                            </div>
-                            <div class="pt-6 text-sage-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                <span>Детальніше</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-
-                        <!-- 3. Панічні атаки -->
-                        <div onclick="openQueryModal('panic')" class="bg-white/95 backdrop-blur-md border border-sage-100 p-7 rounded-3xl shadow-soft hover:shadow-card hover:border-sage-300 transition-all cursor-pointer group flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-50 text-sage-700 flex items-center justify-center font-bold text-2xl group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                                    ⚡
-                                </div>
-                                <h3 class="text-xl font-bold text-sage-900 group-hover:text-sage-600 transition">
-                                    Панічний розлад та панічні атаки
-                                </h3>
-                                <p class="text-sage-600 text-sm leading-relaxed line-clamp-3">
-                                    Раптові напади страху, прискорене серцебиття, брак повітря, страх збожеволіти або втратити контроль над тілом.
-                                </p>
-                            </div>
-                            <div class="pt-6 text-sage-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                <span>Детальніше</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-
-                        <!-- 4. Депресивні стани -->
-                        <div onclick="openQueryModal('depression')" class="bg-white/95 backdrop-blur-md border border-sage-100 p-7 rounded-3xl shadow-soft hover:shadow-card hover:border-sage-300 transition-all cursor-pointer group flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-50 text-sage-700 flex items-center justify-center font-bold text-2xl group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                                    🌧️
-                                </div>
-                                <h3 class="text-xl font-bold text-sage-900 group-hover:text-sage-600 transition">
-                                    Депресивні стани та апатія
-                                </h3>
-                                <p class="text-sage-600 text-sm leading-relaxed line-clamp-3">
-                                    Втрата сил, задоволення та інтересу до життя, хронічний смуток, відчуття безпорадності та самокритика.
-                                </p>
-                            </div>
-                            <div class="pt-6 text-sage-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                <span>Детальніше</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-
-                        <!-- 5. Втрата та горювання -->
-                        <div onclick="openQueryModal('grief')" class="bg-white/95 backdrop-blur-md border border-sage-100 p-7 rounded-3xl shadow-soft hover:shadow-card hover:border-sage-300 transition-all cursor-pointer group flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-50 text-sage-700 flex items-center justify-center font-bold text-2xl group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                                    🕊️
-                                </div>
-                                <h3 class="text-xl font-bold text-sage-900 group-hover:text-sage-600 transition">
-                                    Переживання втрати та горювання
-                                </h3>
-                                <p class="text-sage-600 text-sm leading-relaxed line-clamp-3">
-                                    Біль від розриву стосунків, втрати близьких або домівки, складності у проживанні важких етапів горювання.
-                                </p>
-                            </div>
-                            <div class="pt-6 text-sage-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                <span>Детальніше</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-
-                        <!-- 6. Соціальні навички -->
-                        <div onclick="openQueryModal('social')" class="bg-white/95 backdrop-blur-md border border-sage-100 p-7 rounded-3xl shadow-soft hover:shadow-card hover:border-sage-300 transition-all cursor-pointer group flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-50 text-sage-700 flex items-center justify-center font-bold text-2xl group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                                    🗣️
-                                </div>
-                                <h3 class="text-xl font-bold text-sage-900 group-hover:text-sage-600 transition">
-                                    Соціальні навички та впевненість
-                                </h3>
-                                <p class="text-sage-600 text-sm leading-relaxed line-clamp-3">
-                                    Страх оцінки та засудження іншими, скутість у спілкуванні, сором'язливість та синдром самозванця.
-                                </p>
-                            </div>
-                            <div class="pt-6 text-sage-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                <span>Детальніше</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-
-                        <!-- 7. Особисті кордони -->
-                        <div onclick="openQueryModal('boundaries')" class="bg-white/95 backdrop-blur-md border border-sage-100 p-7 rounded-3xl shadow-soft hover:shadow-card hover:border-sage-300 transition-all cursor-pointer group flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-50 text-sage-700 flex items-center justify-center font-bold text-2xl group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                                    🛡️
-                                </div>
-                                <h3 class="text-xl font-bold text-sage-900 group-hover:text-sage-600 transition">
-                                    Формування особистих кордонів
-                                </h3>
-                                <p class="text-sage-600 text-sm leading-relaxed line-clamp-3">
-                                    Труднощі зі словами «ні», постійне догоджання іншим у збиток собі, співзалежні паттерни у стосунках.
-                                </p>
-                            </div>
-                            <div class="pt-6 text-sage-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                <span>Детальніше</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-
-                        <!-- 8. Регуляція емоцій -->
-                        <div onclick="openQueryModal('emotion')" class="bg-white/95 backdrop-blur-md border border-sage-100 p-7 rounded-3xl shadow-soft hover:shadow-card hover:border-sage-300 transition-all cursor-pointer group flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-50 text-sage-700 flex items-center justify-center font-bold text-2xl group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                                    🌊
-                                </div>
-                                <h3 class="text-xl font-bold text-sage-900 group-hover:text-sage-600 transition">
-                                    Розуміння та регуляція емоцій
-                                </h3>
-                                <p class="text-sage-600 text-sm leading-relaxed line-clamp-3">
-                                    Надмірні спалахи гніву, витіснення почуттів, емоційні качелі та складнощі у розпізнаванні своїх потребах.
-                                </p>
-                            </div>
-                            <div class="pt-6 text-sage-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                <span>Детальніше</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-
-                        <!-- 9. Вигорання та стрес -->
-                        <div onclick="openQueryModal('burnout')" class="bg-white/95 backdrop-blur-md border border-sage-100 p-7 rounded-3xl shadow-soft hover:shadow-card hover:border-sage-300 transition-all cursor-pointer group flex flex-col justify-between">
-                            <div class="space-y-4">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-50 text-sage-700 flex items-center justify-center font-bold text-2xl group-hover:bg-sage-600 group-hover:text-white transition-colors">
-                                    🔋
-                                </div>
-                                <h3 class="text-xl font-bold text-sage-900 group-hover:text-sage-600 transition">
-                                    Стрес та емоційне виснаження
-                                </h3>
-                                <p class="text-sage-600 text-sm leading-relaxed line-clamp-3">
-                                    Професійне вигорання, фізична втома навіть після відпочинку, тривалий стрес та втрата мотивації.
-                                </p>
-                            </div>
-                            <div class="pt-6 text-sage-600 font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform">
-                                <span>Детальніше</span>
-                                <i data-lucide="arrow-right" class="w-4 h-4"></i>
-                            </div>
-                        </div>
-
-                    </div>
+                    <h3 class="font-serif-heading text-2xl font-semibold text-charcoal-900 mb-3">Повна конфіденційність</h3>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        Все, що обговорюється на сесії, залишається суворо між нами згідно з етичними стандартами психотерапії.
+                    </p>
                 </div>
-            </section>
 
-            <!-- СЕКЦІЯ: МЕТОД КПТ ТА ІНТЕРАКТИВНИЙ ТРИКУТНИК -->
-            <section class="py-20 bg-white border-t border-sage-100">
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    
-                    <div class="grid lg:grid-cols-12 gap-12 items-center">
-                        
-                        <!-- Лівий текстовий опис -->
-                        <div class="lg:col-span-6 space-y-6">
-                            <span class="inline-block px-3.5 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold uppercase tracking-wider border border-sage-200">
-                                Доказовий підхід
-                            </span>
-                            <h2 class="text-3xl sm:text-4xl font-serif font-bold text-sage-900 leading-tight">
-                                Когнітивно-поведінкова терапія (КПТ)
-                            </h2>
-                            <p class="text-sage-700 text-base leading-relaxed">
-                                КПТ — це один із найдослідженіших та найбільш ефективних методів психотерапії у світі, рекомендований Всесвітньою організацією охорони здоров'я (ВООЗ).
-                            </p>
-                            <p class="text-sage-600 text-sm leading-relaxed">
-                                В основі КПТ лежить ідея про те, що наші емоції та поведінка викликані не самими подіями, а тим, <strong>як ми їх сприймаємо та інтерпретуємо</strong>. Змінюючи деструктивні переконання, ми змінюємо свій стан і якість життя.
-                            </p>
-
-                            <div class="grid sm:grid-cols-2 gap-4 pt-2">
-                                <div class="p-4 rounded-2xl bg-cream-50 border border-sage-100">
-                                    <div class="font-bold text-sage-900 text-sm mb-1">🎯 Чітка структура</div>
-                                    <p class="text-xs text-sage-600">Ми працюємо з конкретною метою та вимірюваними результатами.</p>
-                                </div>
-                                <div class="p-4 rounded-2xl bg-cream-50 border border-sage-100">
-                                    <div class="font-bold text-sage-900 text-sm mb-1">🛠️ Навички на все життя</div>
-                                    <p class="text-xs text-sage-600">Ви стаєте терапевтом для самого себе у повсякденні.</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Інтерактивний Трикутник КПТ -->
-                        <div class="lg:col-span-6 bg-cream-50 p-6 sm:p-8 rounded-3xl border border-sage-200/80 shadow-soft">
-                            <h3 class="text-xl font-serif font-bold text-sage-900 mb-6 text-center">
-                                Як працює Трикутник КПТ:
-                            </h3>
-
-                            <!-- Вкладки-перемикачі -->
-                            <div class="flex justify-center gap-2 mb-6">
-                                <button onclick="setTriangleTab('thoughts')" id="tab-thoughts" class="triangle-tab active px-4 py-2 rounded-xl text-xs font-semibold border border-sage-200 transition">
-                                    1. Думки
-                                </button>
-                                <button onclick="setTriangleTab('emotions')" id="tab-emotions" class="triangle-tab px-4 py-2 rounded-xl text-xs font-semibold border border-sage-200 transition bg-white text-sage-700">
-                                    2. Емоції & Тіло
-                                </button>
-                                <button onclick="setTriangleTab('behavior')" id="tab-behavior" class="triangle-tab px-4 py-2 rounded-xl text-xs font-semibold border border-sage-200 transition bg-white text-sage-700">
-                                    3. Поведінка
-                                </button>
-                            </div>
-
-                            <!-- Динамічний вміст -->
-                            <div class="bg-white p-6 rounded-2xl border border-sage-100 space-y-4 min-h-[200px] flex flex-col justify-center" id="triangleContent">
-                                <div class="flex items-center gap-3">
-                                    <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-700 font-bold flex items-center justify-center flex-shrink-0">
-                                        💭
-                                    </div>
-                                    <div>
-                                        <h4 class="font-bold text-sage-900 text-sm">Автоматичні думки (Thoughts)</h4>
-                                        <p class="text-xs text-sage-500">Наші миттєві інтерпретації ситуації</p>
-                                    </div>
-                                </div>
-                                <p class="text-xs sm:text-sm text-sage-700 leading-relaxed italic">
-                                    Приклад: «Колега не відповів на моє привітання, отже, я чимось його образив». Ця катастрофічна думка виникає миттєво й неусвідомлено.
-                                </p>
-                            </div>
-
-                            <p class="text-center text-xs text-sage-500 mt-4 italic">
-                                Натисніть на кнопки вище, щоб простежити ланцюгову реакцію
-                            </p>
-                        </div>
-
+                <!-- Principle 3 -->
+                <div class="bg-white p-8 rounded-3xl border border-cream-200 shadow-2xs hover:shadow-md transition-shadow">
+                    <div class="w-14 h-14 bg-cream-100 text-beige-700 rounded-2xl flex items-center justify-center mb-6 text-2xl">
+                        <i class="fa-solid fa-feather"></i>
                     </div>
+                    <h3 class="font-serif-heading text-2xl font-semibold text-charcoal-900 mb-3">Гнучкий темп</h3>
+                    <p class="text-gray-600 text-sm sm:text-base leading-relaxed">
+                        Ми рухаємося у зручному для вас ритмі, без поспіху, приділяючи стільки уваги кожній темі, скільки необхідно саме вам.
+                    </p>
                 </div>
-            </section>
-
-            <!-- СЕКЦІЯ: FAQ (ЧАСТІ ЗАПИТАННЯ) -->
-            <section class="py-20 bg-sage-900 text-white">
-                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-                    
-                    <div class="text-center space-y-3">
-                        <span class="inline-block px-3.5 py-1 rounded-full bg-sage-800 text-sage-200 text-xs font-semibold uppercase tracking-wider border border-sage-700">
-                            FAQ
-                        </span>
-                        <h2 class="text-3xl sm:text-4xl font-serif font-bold">
-                            Найчастіші запитання
-                        </h2>
-                        <p class="text-sage-200 text-sm max-w-lg mx-auto">
-                            Відповіді на популярні запитання щодо тривалості, оплати та правил роботи.
-                        </p>
-                    </div>
-
-                    <!-- Акордеони -->
-                    <div class="space-y-3" id="faqAccordion">
-                        
-                        <div class="bg-sage-800/60 border border-sage-700/60 rounded-2xl overflow-hidden">
-                            <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between font-semibold text-sm sm:text-base gap-4">
-                                <span>Яка тривалість консультації та курсу терапії?</span>
-                                <span class="faq-icon text-xl font-bold text-sage-300">+</span>
-                            </button>
-                            <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-sage-200 leading-relaxed border-t border-sage-700/40 pt-3">
-                                Тривалість однієї консультації — 50 хвилин. Курс терапії може тривати від одного місяця (при конкретних ізольованих запитах) до кількох місяців чи років залежно від глибини проблеми, мотивації та супутніх факторів.
-                            </div>
-                        </div>
-
-                        <div class="bg-sage-800/60 border border-sage-700/60 rounded-2xl overflow-hidden">
-                            <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between font-semibold text-sm sm:text-base gap-4">
-                                <span>Яка вартість та умови оплати й скасування?</span>
-                                <span class="faq-icon text-xl font-bold text-sage-300">+</span>
-                            </button>
-                            <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-sage-200 leading-relaxed border-t border-sage-700/40 pt-3">
-                                Вартість однієї консультації становить 1200 грн. Оплата здійснюється за 24 години до зустрічі. Скасування/перенесення більше ніж за 24 години — безкоштовне. Менше ніж за 24 години — сплачується 50% (умови однакові для обох сторін, окрім форс-мажорів).
-                            </div>
-                        </div>
-
-                        <div class="bg-sage-800/60 border border-sage-700/60 rounded-2xl overflow-hidden">
-                            <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between font-semibold text-sm sm:text-base gap-4">
-                                <span>Чи є можливість очних зустрічей в Івано-Франківську?</span>
-                                <span class="faq-icon text-xl font-bold text-sage-300">+</span>
-                            </button>
-                            <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-sage-200 leading-relaxed border-t border-sage-700/40 pt-3">
-                                Так, очні консультації проходять у м. Івано-Франківськ у затишному кабінеті за адресою: вул. Незалежності, 10А (4-й поверх). Також доступний онлайн-формат через Google Meet чи Zoom.
-                            </div>
-                        </div>
-
-                        <div class="bg-sage-800/60 border border-sage-700/60 rounded-2xl overflow-hidden">
-                            <button onclick="toggleFaq(this)" class="w-full text-left p-5 flex items-center justify-between font-semibold text-sm sm:text-base gap-4">
-                                <span>Як проходять перші консультації?</span>
-                                <span class="faq-icon text-xl font-bold text-sage-300">+</span>
-                            </button>
-                            <div class="faq-answer hidden px-5 pb-5 text-xs sm:text-sm text-sage-200 leading-relaxed border-t border-sage-700/40 pt-3">
-                                Перші дві консультації є діагностичними: ми знайомимося, досліджуємо ваш запит, визначаємо цілі та спільно формуємо план подальшої роботи.
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-
-            <!-- ІНТЕРАКТИВНИЙ БЛОК ЗАПИСУ НАПРИКІНЦІ ГОЛОВНОЇ СТОРІНКИ -->
-            <section class="py-16 sm:py-24 bg-cream-50 relative overflow-hidden">
-                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="bg-white rounded-3xl p-8 sm:p-12 border border-sage-200 shadow-card relative">
-                        <div class="grid md:grid-cols-12 gap-8 items-center">
-                            
-                            <div class="md:col-span-6 space-y-4">
-                                <span class="inline-block px-3.5 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold uppercase tracking-wider">
-                                    Перший крок до змін
-                                </span>
-                                <h2 class="text-3xl font-serif font-bold text-sage-900 leading-tight">
-                                    Записатися на консультацію
-                                </h2>
-                                <p class="text-sage-600 text-sm leading-relaxed">
-                                    Заповніть коротку форму, і я зв'яжуся з вами найближчим часом для узгодження дати та часу.
-                                </p>
-                                <div class="pt-2 space-y-2 text-xs text-sage-700 font-medium">
-                                    <div class="flex items-center gap-2">
-                                        <i data-lucide="check-circle" class="w-4 h-4 text-sage-600"></i>
-                                        <span>Вартість: 1200 грн / 50 хвилин</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <i data-lucide="check-circle" class="w-4 h-4 text-sage-600"></i>
-                                        <span>Формат: Онлайн або Офлайн (Івано-Франківськ)</span>
-                                    </div>
-                                    <div class="flex items-center gap-2">
-                                        <i data-lucide="shield" class="w-4 h-4 text-sage-600"></i>
-                                        <span>100% Конфіденційність</span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="md:col-span-6">
-                                <form onsubmit="handleBookingSubmit(event)" class="space-y-4 bg-cream-50 p-6 rounded-2xl border border-sage-100">
-                                    <div>
-                                        <label class="block text-xs font-bold uppercase tracking-wider text-sage-700 mb-1">Ваше ім'я *</label>
-                                        <input type="text" required placeholder="Олена" class="w-full px-4 py-3 rounded-xl border border-sage-200 focus:border-sage-600 focus:ring-2 focus:ring-sage-100 outline-none text-sm transition bg-white">
-                                    </div>
-
-                                    <div>
-                                        <label class="block text-xs font-bold uppercase tracking-wider text-sage-700 mb-1">Телефон або Telegram/Viber *</label>
-                                        <input type="text" required placeholder="+380... або @username" class="w-full px-4 py-3 rounded-xl border border-sage-200 focus:border-sage-600 focus:ring-2 focus:ring-sage-100 outline-none text-sm transition bg-white">
-                                    </div>
-
-                                    <div>
-                                        <label class="block text-xs font-bold uppercase tracking-wider text-sage-700 mb-1">Бажаний формат</label>
-                                        <select class="w-full px-4 py-3 rounded-xl border border-sage-200 focus:border-sage-600 focus:ring-2 focus:ring-sage-100 outline-none text-sm transition bg-white">
-                                            <option>Онлайн (Google Meet / Zoom / Telegram)</option>
-                                            <option>Офлайн (Івано-Франківськ, вул. Незалежності, 10А)</option>
-                                        </select>
-                                    </div>
-
-                                    <button type="submit" class="w-full py-3.5 bg-sage-600 hover:bg-sage-700 text-white font-semibold rounded-xl shadow-md transition flex items-center justify-center gap-2">
-                                        <i data-lucide="send" class="w-4 h-4"></i>
-                                        <span>Надіслати заявку</span>
-                                    </button>
-                                </form>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </section>
+            </div>
 
         </div>
+    </section>
 
-        <!-- ==================== СТОРІНКА: ПРО МЕНЕ ==================== -->
-        <div id="page-about" class="page-content">
-            <section class="py-12 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+    <!-- ==================== REQUESTS I WORK WITH (СПРОЩЕНИЙ СПИСОК) ==================== -->
+    <section id="requests" class="py-20 bg-beige-100 border-y border-cream-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-semibold text-beige-700 uppercase tracking-widest block mb-2">З чим ви можете звернутися</span>
+                <h2 class="font-serif-heading text-3xl sm:text-4xl text-charcoal-900 font-semibold mb-4">Запити, з якими я працюю</h2>
+                <p class="text-gray-600 text-base">
+                    Лаконічний перелік основних напрямків та тем для індивідуальних консультацій
+                </p>
+            </div>
+
+            <!-- Simplified Clean Grid of Query Tags/Cards -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 max-w-5xl mx-auto">
                 
-                <div class="text-center max-w-2xl mx-auto space-y-3">
-                    <span class="inline-block px-3.5 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold uppercase tracking-wider">
-                        Професійний профіль
-                    </span>
-                    <h1 class="text-3xl sm:text-4xl font-serif font-bold text-sage-900">
-                        Про мене
-                    </h1>
-                    <p class="text-sage-600 text-sm">
-                        Практична психологиня, КПТ-терапевт, членкиня Української асоціації когнітивно-поведінкової терапії (УАКПТ).
-                    </p>
-                </div>
-
-                <!-- Блок філософії -->
-                <div class="bg-white p-8 sm:p-10 rounded-3xl border border-sage-100 shadow-soft space-y-4 leading-relaxed text-sage-700">
-                    <h2 class="text-xl font-serif font-bold text-sage-900 border-b border-sage-100 pb-3 flex items-center gap-2">
-                        <span>🤝</span> Філософія роботи
-                    </h2>
-                    <p class="text-sm sm:text-base">
-                        Консультації для мене — це простір, де можна досліджувати власні думки й почуття у своєму темпі, ділитися тим, що хвилює. Це місце, у якому я з повагою ставлюся до вашого досвіду та дбаю про абсолютну конфіденційність.
-                    </p>
-                    <p class="text-sm sm:text-base">
-                        У своїй практиці спираюся на <strong>науково обґрунтовані підходи</strong>: когнітивно-поведінкову терапію (КПТ) та образно-фокусовану КПТ. Вони допомагають краще розуміти взаємозв’язок думок, емоцій і поведінки, а також знаходити ефективні способи подолання психологічних труднощів.
-                    </p>
-                </div>
-
-                <!-- Таймлайн освіти -->
-                <div class="space-y-6">
-                    <h2 class="text-2xl font-serif font-bold text-sage-900 flex items-center gap-3">
-                        <i data-lucide="graduation-cap" class="w-7 h-7 text-sage-600"></i>
-                        <span>Освіта та кваліфікація</span>
-                    </h2>
-
-                    <div class="relative border-l-2 border-sage-200 pl-6 ml-3 space-y-8">
-                        
-                        <div class="relative">
-                            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-sage-600 border-4 border-cream-50"></div>
-                            <span class="text-xs font-bold text-sage-600 uppercase tracking-wider">2026 – 2030 (у процесі навчання)</span>
-                            <h3 class="text-lg font-bold text-sage-900 mt-1">Чотирирічна програма підготовки КПТ-терапевтів</h3>
-                            <p class="text-xs sm:text-sm text-sage-600">Український інститут когнітивно-поведінкової терапії (УІКПТ)</p>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-sage-500 border-4 border-cream-50"></div>
-                            <span class="text-xs font-bold text-sage-600 uppercase tracking-wider">2024 – 2025</span>
-                            <h3 class="text-lg font-bold text-sage-900 mt-1">Курс з Образно-фокусованої КПТ</h3>
-                            <p class="text-xs sm:text-sm text-sage-600">Спеціалізована річна програма підготовки</p>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-sage-500 border-4 border-cream-50"></div>
-                            <span class="text-xs font-bold text-sage-600 uppercase tracking-wider">2023 – 2025</span>
-                            <h3 class="text-lg font-bold text-sage-900 mt-1">Магістратура «Клінічна психологія»</h3>
-                            <p class="text-xs sm:text-sm text-sage-600">Прикарпатський национальний університет імені Василя Стефаника</p>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-sage-400 border-4 border-cream-50"></div>
-                            <span class="text-xs font-bold text-sage-600 uppercase tracking-wider">2022 – 2023</span>
-                            <h3 class="text-lg font-bold text-sage-900 mt-1">Програма «КПТ+»</h3>
-                            <p class="text-xs sm:text-sm text-sage-600">Український інститут когнітивно-поведінкової терапії</p>
-                        </div>
-
-                        <div class="relative">
-                            <div class="absolute -left-[31px] top-1.5 w-4 h-4 rounded-full bg-sage-300 border-4 border-cream-50"></div>
-                            <span class="text-xs font-bold text-sage-600 uppercase tracking-wider">2019 – 2022</span>
-                            <h3 class="text-lg font-bold text-sage-900 mt-1">Бакалаврат за спеціальністю «Психологія»</h3>
-                            <p class="text-xs sm:text-sm text-sage-600">Прикарпатський національний університет імені Василя Стефаника</p>
-                        </div>
-
+                <div class="bg-white p-5 rounded-2xl border border-cream-200 shadow-2xs flex items-center space-x-4 hover:border-beige-300 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-cream-100 text-beige-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-wind"></i>
                     </div>
+                    <span class="font-medium text-charcoal-900 text-sm sm:text-base">Тривожність та панічні стани</span>
                 </div>
 
-                <!-- Досвід роботи -->
-                <div class="bg-sage-100/60 p-8 rounded-3xl border border-sage-200/60 space-y-6">
-                    <h2 class="text-2xl font-serif font-bold text-sage-900 flex items-center gap-3">
-                        <i data-lucide="briefcase" class="w-7 h-7 text-sage-600"></i>
-                        <span>Досвід роботи</span>
-                    </h2>
-
-                    <div class="grid sm:grid-cols-3 gap-4">
-                        <div class="bg-white p-5 rounded-2xl border border-sage-200/80 space-y-2">
-                            <div class="font-bold text-sage-900 text-sm">Приватна практика</div>
-                            <p class="text-xs text-sage-600 leading-relaxed">Ведення індивідуальних консультацій з 2023 року.</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-sage-200/80 space-y-2">
-                            <div class="font-bold text-sage-900 text-sm">Тренінги та вебінари</div>
-                            <p class="text-xs text-sage-600 leading-relaxed">Проведення заходів для студентів та широкої аудиторії.</p>
-                        </div>
-                        <div class="bg-white p-5 rounded-2xl border border-sage-200/80 space-y-2">
-                            <div class="font-bold text-sage-900 text-sm">Групова терапія</div>
-                            <p class="text-xs text-sage-600 leading-relaxed">Ведення психотерапевтичної групової роботи.</p>
-                        </div>
+                <div class="bg-white p-5 rounded-2xl border border-cream-200 shadow-2xs flex items-center space-x-4 hover:border-beige-300 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-cream-100 text-beige-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-cloud-rain"></i>
                     </div>
+                    <span class="font-medium text-charcoal-900 text-sm sm:text-base">Депресивний стан та пригніченість</span>
                 </div>
 
-            </section>
+                <div class="bg-white p-5 rounded-2xl border border-cream-200 shadow-2xs flex items-center space-x-4 hover:border-beige-300 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-cream-100 text-beige-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-face-smile text-beige-700"></i>
+                    </div>
+                    <span class="font-medium text-charcoal-900 text-sm sm:text-base">Низька самооцінка та неупевненість</span>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-cream-200 shadow-2xs flex items-center space-x-4 hover:border-beige-300 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-cream-100 text-beige-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-battery-quarter"></i>
+                    </div>
+                    <span class="font-medium text-charcoal-900 text-sm sm:text-base">Емоційне та професійне вигорання</span>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-cream-200 shadow-2xs flex items-center space-x-4 hover:border-beige-300 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-cream-100 text-beige-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-people-arrows"></i>
+                    </div>
+                    <span class="font-medium text-charcoal-900 text-sm sm:text-base">Труднощі у стосунках та комунікації</span>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-cream-200 shadow-2xs flex items-center space-x-4 hover:border-beige-300 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-cream-100 text-beige-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-road font-bold"></i>
+                    </div>
+                    <span class="font-medium text-charcoal-900 text-sm sm:text-base">Особистісні та життєві кризи</span>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-cream-200 shadow-2xs flex items-center space-x-4 hover:border-beige-300 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-cream-100 text-beige-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-hand-holding-heart"></i>
+                    </div>
+                    <span class="font-medium text-charcoal-900 text-sm sm:text-base">Робота з внутрішнім критиком та соромом</span>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-cream-200 shadow-2xs flex items-center space-x-4 hover:border-beige-300 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-cream-100 text-beige-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-anchor"></i>
+                    </div>
+                    <span class="font-medium text-charcoal-900 text-sm sm:text-base">Пошук особистих кордонів та опор</span>
+                </div>
+
+                <div class="bg-white p-5 rounded-2xl border border-cream-200 shadow-2xs flex items-center space-x-4 hover:border-beige-300 transition-colors">
+                    <div class="w-10 h-10 rounded-xl bg-cream-100 text-beige-700 flex items-center justify-center shrink-0">
+                        <i class="fa-solid fa-feather-pointed"></i>
+                    </div>
+                    <span class="font-medium text-charcoal-900 text-sm sm:text-base">Проживання важких емоцій та втрати</span>
+                </div>
+
+            </div>
+
+            <!-- Callout Note -->
+            <div class="mt-12 text-center">
+                <p class="text-xs sm:text-sm text-gray-500 italic max-w-xl mx-auto">
+                    Якщо вашого запиту немає у списку — ви можете уточнити можливість співпраці під час первинного звернення.
+                </p>
+            </div>
+
         </div>
+    </section>
 
-        <!-- ==================== СТОРІНКА: ПОСЛУГИ ТА ЦІНИ ==================== -->
-        <div id="page-services" class="page-content">
-            <section class="py-12 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+
+    <!-- ==================== EDUCATION & QUALIFICATIONS (ЧІТКО РОЗДІЛЕНО) ==================== -->
+    <section id="education" class="py-20 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold text-beige-700 uppercase tracking-widest block mb-2">Професійний багаж</span>
+                <h2 class="font-serif-heading text-3xl sm:text-4xl text-charcoal-900 font-semibold mb-4">Освіта та підвищення кваліфікації</h2>
+                <p class="text-gray-600 text-base">
+                    Академічна база та спеціалізовані довготривалі програми підготовки
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 
-                <div class="text-center max-w-2xl mx-auto space-y-3">
-                    <span class="inline-block px-3.5 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold uppercase tracking-wider">
-                        Послуги
-                    </span>
-                    <h1 class="text-3xl sm:text-4xl font-serif font-bold text-sage-900">
-                        Послуги та вартість
-                    </h1>
-                    <p class="text-sage-600 text-sm">
-                        Професійна психологічна допомога для дорослих від 18 років.
-                    </p>
-                </div>
-
-                <!-- Головна картка ціни -->
-                <div class="max-w-2xl mx-auto bg-white rounded-3xl border-2 border-sage-500 shadow-card overflow-hidden">
-                    <div class="bg-sage-600 text-white p-8 text-center space-y-2">
-                        <span class="text-sage-100 uppercase text-xs tracking-widest font-semibold">Індивідуальна консультація</span>
-                        <div class="text-5xl font-serif font-bold">1200 грн</div>
-                        <span class="text-sage-100 text-sm block">Тривалість: 50 хвилин</span>
+                <!-- Section 1: Вища освіта -->
+                <div class="bg-white p-8 rounded-3xl border border-cream-200 shadow-2xs space-y-6">
+                    <div class="flex items-center space-x-4 border-b border-cream-200 pb-5">
+                        <div class="w-12 h-12 bg-cream-100 text-beige-700 rounded-2xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-serif-heading text-2xl font-bold text-charcoal-900">Вища освіта</h3>
+                            <span class="text-xs text-gray-500">Державні дипломи здобуття ступенів</span>
+                        </div>
                     </div>
 
-                    <div class="p-8 space-y-4 text-sm text-sage-700">
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="user-check" class="w-5 h-5 text-sage-600 flex-shrink-0"></i>
-                            <span>Дорослі віком від 18 років</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="globe" class="w-5 h-5 text-sage-600 flex-shrink-0"></i>
-                            <span>Формат: Онлайн або Офлайн (м. Івано-Франківськ)</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="languages" class="w-5 h-5 text-sage-600 flex-shrink-0"></i>
-                            <span>Мова проведення: українська</span>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <i data-lucide="shield-check" class="w-5 h-5 text-sage-600 flex-shrink-0"></i>
-                            <span>Повна конфіденційність та доказові методи</span>
+                    <div class="space-y-6 pl-2">
+                        <!-- Degree 1: Бакалаврат -->
+                        <div class="relative pl-6 border-l-2 border-beige-300">
+                            <div class="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-beige-700"></div>
+                            <span class="text-xs font-semibold bg-cream-100 text-beige-700 px-2.5 py-0.5 rounded-full inline-block mb-1">1. Бакалаврат</span>
+                            <h4 class="font-semibold text-charcoal-900 text-base">Бакалавр психології</h4>
+                            <p class="text-sm text-gray-600">Отримання базової класичної психологічної освіти, фундаментальні знання з загальної, вікової та клінічної психології.</p>
                         </div>
 
-                        <div class="pt-6 border-t border-sage-100">
-                            <button onclick="navigateTo('booking')" class="w-full py-4 bg-sage-600 hover:bg-sage-700 text-white font-semibold rounded-2xl shadow-soft transition text-center block">
-                                Записатися на консультацію
-                            </button>
+                        <!-- Degree 2: Магістратура -->
+                        <div class="relative pl-6 border-l-2 border-beige-300">
+                            <div class="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-beige-700"></div>
+                            <span class="text-xs font-semibold bg-cream-100 text-beige-700 px-2.5 py-0.5 rounded-full inline-block mb-1">2. Магістратура</span>
+                            <h4 class="font-semibold text-charcoal-900 text-base">Магістр психології</h4>
+                            <p class="text-sm text-gray-600">Поглиблена магістерська програма, науково-дослідна діяльність, консультування та психологічна діагностика.</p>
                         </div>
                     </div>
                 </div>
 
-                <!-- Порівняння форматів -->
-                <div class="grid md:grid-cols-2 gap-8">
-                    <div class="bg-white p-7 rounded-3xl border border-sage-100 shadow-soft space-y-3">
-                        <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-700 flex items-center justify-center font-bold">
-                            💻
+                <!-- Section 2: Підвищення кваліфікації -->
+                <div class="bg-white p-8 rounded-3xl border border-cream-200 shadow-2xs space-y-6">
+                    <div class="flex items-center space-x-4 border-b border-cream-200 pb-5">
+                        <div class="w-12 h-12 bg-cream-100 text-beige-700 rounded-2xl flex items-center justify-center text-xl shrink-0">
+                            <i class="fa-solid fa-award"></i>
                         </div>
-                        <h3 class="text-lg font-serif font-bold text-sage-900">Онлайн консультації</h3>
-                        <p class="text-xs sm:text-sm text-sage-600 leading-relaxed">
-                            Зручний формат з будь-якого куточка світу через Google Meet, Zoom або Telegram. Потрібні лише стабільний інтернет та приватне місце.
-                        </p>
+                        <div>
+                            <h3 class="font-serif-heading text-2xl font-bold text-charcoal-900">Підвищення кваліфікації</h3>
+                            <span class="text-xs text-gray-500">Спеціалізоване психотерапевтичне навчання</span>
+                        </div>
                     </div>
 
-                    <div class="bg-white p-7 rounded-3xl border border-sage-100 shadow-soft space-y-3">
-                        <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-700 flex items-center justify-center font-bold">
-                            🏢
+                    <div class="space-y-6 pl-2">
+                        <!-- Qualification 1: КПТ+ -->
+                        <div class="relative pl-6 border-l-2 border-beige-300">
+                            <div class="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-beige-700"></div>
+                            <span class="text-xs font-semibold bg-cream-100 text-beige-700 px-2.5 py-0.5 rounded-full inline-block mb-1">1. Навчальна програма</span>
+                            <h4 class="font-semibold text-charcoal-900 text-base">Програма «КПТ+»</h4>
+                            <p class="text-sm text-gray-600">Опанування практичних протоколів когнітивно-поведінкової терапії для роботи з різними видами запитів.</p>
                         </div>
-                        <h3 class="text-lg font-serif font-bold text-sage-900">Очні зустрічі (Івано-Франківськ)</h3>
-                        <p class="text-xs sm:text-sm text-sage-600 leading-relaxed">
-                            Очний прийом проходить у затишному кабінеті в центрі міста за адресою: вул. Незалежності, 10А (4-й поверх).
-                        </p>
+
+                        <!-- Qualification 2: Образно-фокусована КПТ -->
+                        <div class="relative pl-6 border-l-2 border-beige-300">
+                            <div class="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-beige-700"></div>
+                            <span class="text-xs font-semibold bg-cream-100 text-beige-700 px-2.5 py-0.5 rounded-full inline-block mb-1">2. Метод</span>
+                            <h4 class="font-semibold text-charcoal-900 text-base">Образно-фокусована КПТ</h4>
+                            <p class="text-sm text-gray-600">Спеціалізоване навчання методу роботи з внутрішніми образами, емоційними схемами та ментальними уявленнями.</p>
+                        </div>
+
+                        <!-- Qualification 3: 4-річна програма -->
+                        <div class="relative pl-6 border-l-2 border-beige-300">
+                            <div class="absolute -left-[7px] top-1 w-3 h-3 rounded-full bg-beige-700"></div>
+                            <span class="text-xs font-semibold bg-cream-100 text-beige-700 px-2.5 py-0.5 rounded-full inline-block mb-1">3. Довготривале навчання</span>
+                            <h4 class="font-semibold text-charcoal-900 text-base">4-річна навчальна програма</h4>
+                            <p class="text-sm text-gray-600">Комплексна багаторічна підготовка за стандартами УАКПТ із регулярним проходженням супервізій та інтервізій.</p>
+                        </div>
                     </div>
                 </div>
 
-            </section>
-        </div>
+            </div>
 
-        <!-- ==================== СТОРІНКА: ПРАВИЛА РОБОТИ ==================== -->
-        <div id="page-rules" class="page-content">
-            <section class="py-12 sm:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
-                
-                <div class="text-center max-w-2xl mx-auto space-y-3">
-                    <span class="inline-block px-3.5 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold uppercase tracking-wider">
-                        Етика & Умови
-                    </span>
-                    <h1 class="text-3xl sm:text-4xl font-serif font-bold text-sage-900">
-                        Правила співпраці
-                    </h1>
-                    <p class="text-sage-600 text-sm">
-                        Прозорі умови для комфортного та ефективного терапевтичного процесу.
-                    </p>
+            <!-- Diplomas Gallery Preview -->
+            <div id="diplomas" class="mt-16 bg-white p-8 rounded-3xl border border-cream-200 shadow-2xs">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-8 pb-4 border-b border-cream-200">
+                    <div>
+                        <h3 class="font-serif-heading text-2xl font-bold text-charcoal-900">Дипломи та сертифікати</h3>
+                        <p class="text-xs sm:text-sm text-gray-500">Підтвердження кваліфікації та проходження освітніх програм</p>
+                    </div>
+                    <span class="text-xs text-beige-700 mt-2 sm:mt-0"><i class="fa-solid fa-magnifying-glass-plus mr-1"></i> Натисніть на фото для перегляду</span>
                 </div>
 
-                <div class="space-y-6">
+                <div class="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                                        <!-- Diploma Item 3 -->
+                    <div onclick="openLightbox('/diploma.png', 'Сертифікат Образно-фокусована КПТ')" class="group relative bg-cream-100 rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer border border-cream-200 shadow-2xs">
+                        <img src="/diploma.png" alt="Сертифікат Образно-фокусована КПТ" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-charcoal-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-solid fa-expand text-xl"></i>
+                        </div>
+                    </div>
+                    <div onclick="openLightbox('/certificate.png', 'Диплом бакалавра та магістра психології')" class="group relative bg-cream-100 rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer border border-cream-200 shadow-2xs">
+                        <img src="/certificate.png" alt="Диплом" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-charcoal-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-solid fa-expand text-xl"></i>
+                        </div>
+                    </div>
                     
-                    <div class="bg-white p-7 rounded-3xl border border-sage-100 shadow-soft space-y-3">
-                        <h2 class="text-lg font-serif font-bold text-sage-900 flex items-center gap-2">
-                            <span>📋</span> Формат та перші зустрічі
-                        </h2>
-                        <ul class="space-y-2 text-xs sm:text-sm text-sage-700 leading-relaxed list-disc list-inside">
-                            <li>Консультації проводяться для дорослих віком від 18 років онлайн та офлайн українською мовою.</li>
-                            <li>Зазвичай перші дві консультації є діагностичними: ми знайомимося, досліджуємо ваш запит, визначаємо цілі та спільно формуємо план подальшої роботи.</li>
-                            <li>Якщо під час діагностики з'ясується, що ваш запит виходить за межі моєї компетенції, я рекомендую відповідного фахівця (зокрема психіатра).</li>
-                        </ul>
+                    <!-- Diploma Item 2 -->
+                    <div onclick="openLightbox('/certificate2.png', 'Сертифікат проходження програми КПТ+')" class="group relative bg-cream-100 rounded-2xl overflow-hidden aspect-[4/3] cursor-pointer border border-cream-200 shadow-2xs">
+                        <img src="/certificate2.png" alt="Сертифікат КПТ+" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                        <div class="absolute inset-0 bg-charcoal-900/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center text-white">
+                            <i class="fa-solid fa-expand text-xl"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==================== OFFICE GALLERY & EXACT ADDRESS ==================== -->
+    <section id="office" class="py-20 bg-cream-100 border-t border-cream-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-14">
+                <span class="text-xs font-semibold text-beige-700 uppercase tracking-widest block mb-2">Очний прийом в Івано-Франківську</span>
+                <h2 class="font-serif-heading text-3xl sm:text-4xl text-charcoal-900 font-semibold mb-4">Фото психологічного кабінету</h2>
+                <p class="text-gray-600 text-base">
+                    вул. Незалежності, 10А, 4-й поверх, м. Івано-Франківськ
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-1 gap-6">
+                <!-- Office Photo 3 -->
+                <div onclick="openLightbox('/office.png', 'Зона очікування в офісному центрі')" class="group relative bg-white rounded-3xl overflow-hidden aspect-[4/3] cursor-pointer shadow-2xs border border-cream-200">
+                    <img src="/office.png" alt="Зона комфорту" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-charcoal-900/60 via-transparent to-transparent opacity-90 group-hover:opacity-100 transition-opacity p-6 flex items-end">
+                        <span class="text-white text-sm font-medium"><i class="fa-solid fa-building mr-2"></i>4-й поверх, зручне розташування</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==================== RULES OF COLLABORATION ==================== -->
+    <section id="rules" class="py-20 bg-cream-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <span class="text-xs font-semibold text-beige-700 uppercase tracking-widest block mb-2">Прозорість та безпека</span>
+                <h2 class="font-serif-heading text-3xl sm:text-4xl text-charcoal-900 font-semibold mb-4">Правила нашої співпраці</h2>
+                <p class="text-gray-600 text-base">
+                    Чіткі домовленості допомагають зробити процес терапії передбачуваним та безпечним для обох сторін
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Rule 1 -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-cream-200 shadow-2xs space-y-3">
+                    <div class="w-10 h-10 bg-cream-100 text-beige-700 rounded-xl flex items-center justify-center font-bold text-base">1</div>
+                    <h3 class="font-serif-heading text-xl font-bold text-charcoal-900">Тривалість сесії</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Індивідуальна консультація триває <strong class="text-charcoal-900">50 хвилин</strong>. Рекомендована частота зустрічей — 1 раз на тиждень для підтримки динаміки.
+                    </p>
+                </div>
+
+                <!-- Rule 2 -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-cream-200 shadow-2xs space-y-3">
+                    <div class="w-10 h-10 bg-cream-100 text-beige-700 rounded-xl flex items-center justify-center font-bold text-base">2</div>
+                    <h3 class="font-serif-heading text-xl font-bold text-charcoal-900">Скасування та перенесення</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Безкоштовне скасування або перенесення можливе <strong class="text-charcoal-900">не пізніше ніж за 24 години</strong> до узгодженого часу сесії.
+                    </p>
+                </div>
+
+                <!-- Rule 3 -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-cream-200 shadow-2xs space-y-3">
+                    <div class="w-10 h-10 bg-cream-100 text-beige-700 rounded-xl flex items-center justify-center font-bold text-base">3</div>
+                    <h3 class="font-serif-heading text-xl font-bold text-charcoal-900">Пунктуальність</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        У разі вашого запізнення час сесії не продовжується. При моєму запізненні — втрачений час компенсується або додається до наступної зустрічі.
+                    </p>
+                </div>
+
+                <!-- Rule 4 -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-cream-200 shadow-2xs space-y-3">
+                    <div class="w-10 h-10 bg-cream-100 text-beige-700 rounded-xl flex items-center justify-center font-bold text-base">4</div>
+                    <h3 class="font-serif-heading text-xl font-bold text-charcoal-900">Оплата сесій</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Для онлайн-сесій бронь здійснюється за заздалегідь підтвердженою передплатою. Очні зустрічі в кабінеті оплачуються у день візиту.
+                    </p>
+                </div>
+
+                <!-- Rule 5 -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-cream-200 shadow-2xs space-y-3">
+                    <div class="w-10 h-10 bg-cream-100 text-beige-700 rounded-xl flex items-center justify-center font-bold text-base">5</div>
+                    <h3 class="font-serif-heading text-xl font-bold text-charcoal-900">Конфіденційність</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Вся інформація з сесій є суворо конфіденційною. Виняток — ситуації загрози життю або здоров’ю клієнта чи третіх осіб.
+                    </p>
+                </div>
+
+                <!-- Rule 6 -->
+                <div class="bg-white p-6 sm:p-8 rounded-3xl border border-cream-200 shadow-2xs space-y-3">
+                    <div class="w-10 h-10 bg-cream-100 text-beige-700 rounded-xl flex items-center justify-center font-bold text-base">6</div>
+                    <h3 class="font-serif-heading text-xl font-bold text-charcoal-900">Формат зв'язку</h3>
+                    <p class="text-sm text-gray-600 leading-relaxed">
+                        Онлайн-зустрічі проводяться через Google Meet або Zoom. Очні сесії відбуваються у кабінеті за адресою: вул. Незалежності, 10А, 4 поверх.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==================== HIGHLIGHTED FAQ SECTION (ТЕМНИЙ КАВОВИЙ ВІДТІНОК) ==================== -->
+    <section id="faq" class="py-20 bg-charcoal-900 text-white relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <div class="text-center mb-14">
+                <span class="text-xs font-semibold text-beige-300 uppercase tracking-widest block mb-2">Відповіді на запитання</span>
+                <h2 class="font-serif-heading text-3xl sm:text-4xl text-cream-50 font-semibold mb-4">Найчастіші питання</h2>
+                <p class="text-gray-300 text-base">Все, що варто знати перед тим, як зробити перший крок</p>
+            </div>
+
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="bg-charcoal-800/80 border border-charcoal-800 rounded-2xl overflow-hidden transition-colors">
+                    <button onclick="toggleFaq(1)" class="w-full text-left px-6 py-5 font-serif-heading font-semibold text-lg text-cream-50 flex justify-between items-center hover:bg-charcoal-800">
+                        <span>Як підготуватися до першої сесії?</span>
+                        <i id="faq-icon-1" class="fa-solid fa-chevron-down text-beige-300 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-1" class="hidden px-6 py-5 text-gray-300 text-sm sm:text-base border-t border-charcoal-800 bg-charcoal-900/60 leading-relaxed">
+                        Спеціальної підготовки не потрібно. Достатньо забезпечити собі тихе, приватне місце на 50 хвилин для онлайн-сесії або прийти вчасно до кабінету в Івано-Франківську (вул. Незалежності, 10А). Можна підготувати тези того, що турбує найбільше.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 2 -->
+                <div class="bg-charcoal-800/80 border border-charcoal-800 rounded-2xl overflow-hidden transition-colors">
+                    <button onclick="toggleFaq(2)" class="w-full text-left px-6 py-5 font-serif-heading font-semibold text-lg text-cream-50 flex justify-between items-center hover:bg-charcoal-800">
+                        <span>Чим відрізняється онлайн-формат від очної зустрічі?</span>
+                        <i id="faq-icon-2" class="fa-solid fa-chevron-down text-beige-300 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-2" class="hidden px-6 py-5 text-gray-300 text-sm sm:text-base border-t border-charcoal-800 bg-charcoal-900/60 leading-relaxed">
+                        За ефективністю обидва формати є повністю тотожними. Онлайн дає можливість працювати з будь-якої точки світу в зручних домашніх умовах, а очний формат в кабінеті підходить тим, хто цінує фізичний простір та живе в Івано-Франківську.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 3 -->
+                <div class="bg-charcoal-800/80 border border-charcoal-800 rounded-2xl overflow-hidden transition-colors">
+                    <button onclick="toggleFaq(3)" class="w-full text-left px-6 py-5 font-serif-heading font-semibold text-lg text-cream-50 flex justify-between items-center hover:bg-charcoal-800">
+                        <span>Скільки потрібно консультацій?</span>
+                        <i id="faq-icon-3" class="fa-solid fa-chevron-down text-beige-300 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-3" class="hidden px-6 py-5 text-gray-300 text-sm sm:text-base border-t border-charcoal-800 bg-charcoal-900/60 leading-relaxed">
+                        Це дуже індивідуально. Іноді для зняття гострого стану чи висвітлення конкретного вибору достатньо 3–5 зустрічей. Для глибинних змін самооцінки чи тривалої тривожності формується короткостроковий або довгостроковий план терапії.
+                    </div>
+                </div>
+
+                <!-- FAQ Item 4 -->
+                <div class="bg-charcoal-800/80 border border-charcoal-800 rounded-2xl overflow-hidden transition-colors">
+                    <button onclick="toggleFaq(4)" class="w-full text-left px-6 py-5 font-serif-heading font-semibold text-lg text-cream-50 flex justify-between items-center hover:bg-charcoal-800">
+                        <span>Чи можна звернутися, якщо точно не можу сформулювати проблему?</span>
+                        <i id="faq-icon-4" class="fa-solid fa-chevron-down text-beige-300 transition-transform duration-300"></i>
+                    </button>
+                    <div id="faq-content-4" class="hidden px-6 py-5 text-gray-300 text-sm sm:text-base border-t border-charcoal-800 bg-charcoal-900/60 leading-relaxed">
+                        Так, звичайно. Відчуття «мені погано», «я заплутався/заплуталася» або «щось іде не так» — це вже достатній привід для звернення. На першій сесії ми разом допоможемо структурувати ваші переживання.
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- ==================== REAL CONTACTS & SOCIAL MEDIA ==================== -->
+    <section id="contacts" class="py-20 bg-cream-100 border-t border-cream-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+                
+                <!-- Direct Contacts & Social Cards -->
+                <div class="lg:col-span-5 space-y-8">
+                    <div>
+                        <span class="text-xs font-semibold text-beige-700 uppercase tracking-widest block mb-2">Зв'язок зі мною</span>
+                        <h2 class="font-serif-heading text-3xl sm:text-4xl text-charcoal-900 font-bold mb-4">Контакти та соцмережі</h2>
+                        <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                            Напишіть мені у будь-який зручний месенджер або зателефонуйте для уточнення деталей та запису.
+                        </p>
                     </div>
 
-                    <div class="bg-white p-7 rounded-3xl border border-sage-100 shadow-soft space-y-3">
-                        <h2 class="text-lg font-serif font-bold text-sage-900 flex items-center gap-2">
-                            <span>💳</span> Регламент, вартість та оплата
-                        </h2>
-                        <ul class="space-y-2 text-xs sm:text-sm text-sage-700 leading-relaxed list-disc list-inside">
-                            <li>Тривалість консультації — 50 хвилин. День і час узгоджуємо індивідуально.</li>
-                            <li>Вартість — 1200 грн. Ціна може переглядатися двічі на рік (з повідомленням за місяць).</li>
-                            <li>Оплата здійснюється за 24 години до консультації.</li>
-                        </ul>
+                    <!-- Interactive Contact Links -->
+                    <div class="space-y-3">
+                        
+                        <!-- Telegram -->
+                        <a href="https://t.me/Tanya_Leshchyshyn" target="_blank" class="flex items-center space-x-4 p-4 bg-white rounded-2xl border border-cream-200 shadow-2xs hover:border-beige-300 hover:shadow-xs transition-all group">
+                            <div class="w-12 h-12 bg-sky-50 text-sky-600 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-telegram"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="text-xs text-gray-500">Telegram</div>
+                                <div class="text-base font-semibold text-charcoal-900">@Tanya_Leshchyshyn</div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
+                        <!-- Instagram -->
+                        <a href="https://www.instagram.com/tetiana.psychologistt?igsh=MTZwbHhrZGtvajgyZg%3D%3D" target="_blank" class="flex items-center space-x-4 p-4 bg-white rounded-2xl border border-cream-200 shadow-2xs hover:border-beige-300 hover:shadow-xs transition-all group">
+                            <div class="w-12 h-12 bg-pink-50 text-pink-600 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                                <i class="fa-brands fa-instagram"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="text-xs text-gray-500">Instagram</div>
+                                <div class="text-base font-semibold text-charcoal-900">@tetiana.psychologistt</div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
+                        <!-- Phone -->
+                        <a href="tel:+380966981294" class="flex items-center space-x-4 p-4 bg-white rounded-2xl border border-cream-200 shadow-2xs hover:border-beige-300 hover:shadow-xs transition-all group">
+                            <div class="w-12 h-12 bg-emerald-50 text-emerald-600 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="text-xs text-gray-500">Телефон</div>
+                                <div class="text-base font-semibold text-charcoal-900">+38 (096) 698-12-94</div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
+                        <!-- Email -->
+                        <a href="mailto:leshchyshyntanya552@gmail.com" class="flex items-center space-x-4 p-4 bg-white rounded-2xl border border-cream-200 shadow-2xs hover:border-beige-300 hover:shadow-xs transition-all group">
+                            <div class="w-12 h-12 bg-amber-50 text-amber-700 rounded-xl flex items-center justify-center text-xl shrink-0 group-hover:scale-105 transition-transform">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="flex-grow">
+                                <div class="text-xs text-gray-500">Електронна пошта</div>
+                                <div class="text-sm sm:text-base font-semibold text-charcoal-900 break-all">leshchyshyntanya552@gmail.com</div>
+                            </div>
+                            <i class="fa-solid fa-arrow-right text-gray-400 group-hover:translate-x-1 transition-transform"></i>
+                        </a>
+
                     </div>
 
-                    <div class="bg-white p-7 rounded-3xl border border-sage-100 shadow-soft space-y-3">
-                        <h2 class="text-lg font-serif font-bold text-sage-900 flex items-center gap-2">
-                            <span>⏳</span> Скасування, запізнення та форс-мажори
-                        </h2>
-                        <ul class="space-y-2 text-xs sm:text-sm text-sage-700 leading-relaxed list-disc list-inside">
-                            <li>Перенесення/скасування щонайменше за 24 години — безкоштовне.</li>
-                            <li>При попередженні пізніше ніж за 24 години сплачується 50% вартості консультації (умови є дзеркальними для обох сторін).</li>
-                            <li>У разі хвороби, повітряної тривоги, обстрілів або форс-мажорів консультацію можна перенести без додаткової оплати.</li>
-                            <li>При запізненні більш ніж на 20 хвилин консультація вважається скасованою без повернення коштів (окрім форс-мажорів).</li>
-                        </ul>
-                    </div>
-
-                    <div class="bg-white p-7 rounded-3xl border border-sage-100 shadow-soft space-y-3">
-                        <h2 class="text-lg font-serif font-bold text-sage-900 flex items-center gap-2">
-                            <span>🔒</span> Конфіденційність та супервізія
-                        </h2>
-                        <p class="text-xs sm:text-sm text-sage-700 leading-relaxed">
-                            Усе, чим ви ділитеся, залишається конфіденційним. Виняток — ситуації серйозної загрози вашому життю чи здоров'ю інших осіб. Для підтримання якості роботи випадки можуть обговорюватися зі супервізором без розкриття вашого імені та ідентифікаційних даних.
+                    <!-- Detailed Address Card -->
+                    <div class="p-5 bg-white rounded-2xl border border-cream-200 shadow-2xs space-y-2">
+                        <div class="flex items-center space-x-3 text-beige-700 font-semibold text-sm">
+                            <i class="fa-solid fa-location-dot text-lg"></i>
+                            <span>Адреса очного прийому</span>
+                        </div>
+                        <p class="text-sm font-medium text-charcoal-900">
+                            м. Івано-Франківськ, вул. Незалежності, 10А, 4-й поверх
+                        </p>
+                        <p class="text-xs text-gray-500">
+                            Зручна локація у центрі міста. Очні консультації відбуваються за попереднім записом.
                         </p>
                     </div>
 
                 </div>
 
-            </section>
-        </div>
-
-        <!-- ==================== СТОРІНКА: КОНТАКТИ ==================== -->
-        <div id="page-contacts" class="page-content">
-            <section class="py-12 sm:py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-                
-                <div class="text-center max-w-2xl mx-auto space-y-3">
-                    <span class="inline-block px-3.5 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold uppercase tracking-wider">
-                        Зв'язок
-                    </span>
-                    <h1 class="text-3xl sm:text-4xl font-serif font-bold text-sage-900">
-                        Контакти
-                    </h1>
-                    <p class="text-sage-600 text-sm">
-                        Зв'яжіться зі мною зручним для вас способом.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-2 gap-8 items-start">
-                    
-                    <div class="space-y-4">
+                <!-- Fast Appointment Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white p-8 sm:p-10 rounded-3xl shadow-sm border border-cream-200">
+                        <h3 class="font-serif-heading text-2xl font-bold text-charcoal-900 mb-2">Надіслати повідомлення</h3>
+                        <p class="text-xs sm:text-sm text-gray-500 mb-6">Заповніть форму і я зв'яжуся з вами найближчим часом</p>
                         
-                        <!-- Телефон -->
-                        <div class="bg-white p-6 rounded-3xl border border-sage-100 shadow-soft flex items-center justify-between">
-                            <div class="flex items-center gap-4">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-700 flex items-center justify-center">
-                                    <i data-lucide="phone" class="w-6 h-6"></i>
+                        <form onsubmit="handleInlineSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-semibold text-gray-600 mb-1">Ваше ім'я *</label>
+                                    <input type="text" required placeholder="Олена" class="w-full px-4 py-3 bg-cream-50 border border-cream-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-beige-700/30 text-sm">
                                 </div>
                                 <div>
-                                    <span class="text-xs text-sage-500 uppercase font-semibold block">Телефон</span>
-                                    <a href="tel:0966981294" class="text-base sm:text-lg font-bold text-sage-900 hover:text-sage-600 transition">096 698 12 94</a>
+                                    <label class="block text-xs font-semibold text-gray-600 mb-1">Телефон / Telegram *</label>
+                                    <input type="text" required placeholder="+380 96 000 0000 або @username" class="w-full px-4 py-3 bg-cream-50 border border-cream-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-beige-700/30 text-sm">
                                 </div>
                             </div>
-                            <button onclick="copyToClipboard('0966981294', 'Номер телефону скопійовано!')" class="p-2.5 rounded-xl bg-sage-50 hover:bg-sage-100 text-sage-700 transition" title="Скопіювати">
-                                <i data-lucide="copy" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-
-                        <!-- E-mail -->
-                        <div class="bg-white p-6 rounded-3xl border border-sage-100 shadow-soft flex items-center justify-between">
-                            <div class="flex items-center gap-4 overflow-hidden">
-                                <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-700 flex items-center justify-center flex-shrink-0">
-                                    <i data-lucide="mail" class="w-6 h-6"></i>
-                                </div>
-                                <div class="truncate">
-                                    <span class="text-xs text-sage-500 uppercase font-semibold block">Електронна пошта</span>
-                                    <a href="mailto:leshchyshyntanya552@gmail.com" class="text-xs sm:text-sm font-bold text-sage-900 hover:text-sage-600 transition truncate block">leshchyshyntanya552@gmail.com</a>
-                                </div>
-                            </div>
-                            <button onclick="copyToClipboard('leshchyshyntanya552@gmail.com', 'E-mail скопійовано!')" class="p-2.5 rounded-xl bg-sage-50 hover:bg-sage-100 text-sage-700 transition flex-shrink-0" title="Скопіювати">
-                                <i data-lucide="copy" class="w-4 h-4"></i>
-                            </button>
-                        </div>
-
-                        <!-- Адреса -->
-                        <div class="bg-white p-6 rounded-3xl border border-sage-100 shadow-soft flex items-center gap-4">
-                            <div class="w-12 h-12 rounded-2xl bg-sage-100 text-sage-700 flex items-center justify-center flex-shrink-0">
-                                <i data-lucide="map-pin" class="w-6 h-6"></i>
-                            </div>
-                            <div>
-                                <span class="text-xs text-sage-500 uppercase font-semibold block">Адреса офісу</span>
-                                <div class="text-sm font-bold text-sage-900">вул. Незалежності, 10А, 4-й поверх</div>
-                                <div class="text-xs text-sage-500">м. Івано-Франківськ</div>
-                            </div>
-                        </div>
-
-                        <!-- Кнопки швидкого месенджера -->
-                        <div class="pt-2 grid grid-cols-2 gap-3">
-                            <a href="https://t.me/your_telegram" target="_blank" class="py-3.5 px-4 bg-white border border-sage-200 text-sage-800 rounded-2xl text-center text-sm font-semibold hover:bg-sage-50 transition flex items-center justify-center gap-2 shadow-sm">
-                                <span>✈️ Telegram</span>
-                            </a>
-                            <a href="viber://chat?number=%2B380966981294" class="py-3.5 px-4 bg-white border border-sage-200 text-sage-800 rounded-2xl text-center text-sm font-semibold hover:bg-sage-50 transition flex items-center justify-center gap-2 shadow-sm">
-                                <span>💬 Viber</span>
-                            </a>
-                        </div>
-
-                    </div>
-
-                    <!-- Локація на Карті -->
-                    <div class="bg-white p-7 rounded-3xl border border-sage-100 shadow-soft space-y-4 text-center">
-                        <h3 class="font-serif font-bold text-lg text-sage-900">Як мене знайти</h3>
-                        <div class="bg-sage-50 rounded-2xl p-8 border border-sage-200/60 flex flex-col items-center justify-center space-y-3">
-                            <div class="w-12 h-12 rounded-full bg-sage-200 text-sage-700 flex items-center justify-center">
-                                📍
-                            </div>
-                            <div class="text-sm font-bold text-sage-900">м. Івано-Франківськ</div>
-                            <div class="text-xs text-sage-600">вул. Незалежності, 10А (4-й поверх)</div>
-                            <a href="https://maps.google.com/?q=Івано-Франківськ,+вул.+Незалежності,+10А" target="_blank" class="mt-2 inline-flex items-center gap-2 px-4 py-2.5 bg-sage-600 text-white rounded-xl text-xs font-semibold hover:bg-sage-700 transition">
-                                <span>Відкрити в Google Maps</span>
-                                <i data-lucide="external-link" class="w-3.5 h-3.5"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-
-            </section>
-        </div>
-
-        <!-- ==================== СТОРІНКА: ЗАПИСАТИСЯ (ОКРЕМА СТОРІНКА) ==================== -->
-        <div id="page-booking" class="page-content">
-            <section class="py-12 sm:py-20 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-8">
-                
-                <div class="text-center max-w-2xl mx-auto space-y-3">
-                    <span class="inline-block px-3.5 py-1 rounded-full bg-sage-100 text-sage-800 text-xs font-semibold uppercase tracking-wider">
-                        Запис на прийом
-                    </span>
-                    <h1 class="text-3xl sm:text-4xl font-serif font-bold text-sage-900">
-                        Забронювати консультацію
-                    </h1>
-                    <p class="text-sage-600 text-sm">
-                        Заповніть форму або скористайтеся прямим зв'язком у месенджерах. Я відповім вам протягом кількох годин.
-                    </p>
-                </div>
-
-                <div class="grid md:grid-cols-12 gap-8 items-start">
-                    
-                    <!-- Форма запису -->
-                    <div class="md:col-span-7 bg-white p-8 rounded-3xl border border-sage-100 shadow-card">
-                        <form onsubmit="handleBookingSubmit(event)" class="space-y-4">
-                            
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-sage-700 mb-1.5">Ваше ім'я *</label>
-                                <input type="text" required placeholder="Олена" class="w-full px-4 py-3.5 rounded-2xl border border-sage-200 focus:border-sage-600 focus:ring-2 focus:ring-sage-100 outline-none text-sm transition bg-cream-50">
-                            </div>
 
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-sage-700 mb-1.5">Телефон або Telegram/Viber *</label>
-                                <input type="text" required placeholder="+380... або @username" class="w-full px-4 py-3.5 rounded-2xl border border-sage-200 focus:border-sage-600 focus:ring-2 focus:ring-sage-100 outline-none text-sm transition bg-cream-50">
-                            </div>
-
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-sage-700 mb-1.5">Формат зустрічі</label>
-                                <select class="w-full px-4 py-3.5 rounded-2xl border border-sage-200 focus:border-sage-600 focus:ring-2 focus:ring-sage-100 outline-none text-sm transition bg-cream-50">
-                                    <option>Онлайн (Google Meet / Zoom / Telegram)</option>
-                                    <option>Офлайн (м. Івано-Франківськ, вул. Незалежності, 10А)</option>
+                                <label class="block text-xs font-semibold text-gray-600 mb-1">Бажаний формат консультації</label>
+                                <select class="w-full px-4 py-3 bg-cream-50 border border-cream-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-beige-700/30 text-sm text-gray-700">
+                                    <option>Онлайн (Google Meet / Zoom)</option>
+                                    <option>Кабінет в Івано-Франківську (вул. Незалежності, 10А)</option>
                                 </select>
                             </div>
 
                             <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-sage-700 mb-1.5">Коротко про ваш запит (за бажанням)</label>
-                                <textarea rows="3" placeholder="Що саме вас турбує останнім часом?" class="w-full px-4 py-3.5 rounded-2xl border border-sage-200 focus:border-sage-600 focus:ring-2 focus:ring-sage-100 outline-none text-sm transition bg-cream-50 resize-none"></textarea>
+                                <label class="block text-xs font-semibold text-gray-600 mb-1">Коротко про запит або зручний час</label>
+                                <textarea rows="3" placeholder="З чим би ви хотіли попрацювати..." class="w-full px-4 py-3 bg-cream-50 border border-cream-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-beige-700/30 text-sm"></textarea>
                             </div>
 
-                            <button type="submit" class="w-full py-4 bg-sage-600 hover:bg-sage-700 text-white font-semibold rounded-2xl shadow-glow transition text-center flex items-center justify-center gap-2">
-                                <i data-lucide="send" class="w-4 h-4"></i>
-                                <span>Надіслати заявку</span>
+                            <button type="submit" class="w-full bg-beige-700 hover:bg-beige-800 text-white font-medium py-3.5 rounded-full text-base transition-all shadow-sm">
+                                Надіслати запит
                             </button>
-
-                            <p class="text-center text-xs text-sage-500 pt-1">
-                                🔒 Повна конфіденційність гарантується.
-                            </p>
                         </form>
                     </div>
-
-                    <!-- Правила та швидкий зв'язок -->
-                    <div class="md:col-span-5 space-y-6">
-                        
-                        <div class="bg-sage-100/70 p-6 rounded-3xl border border-sage-200/80 space-y-3">
-                            <h3 class="font-bold text-sage-900 text-base">Швидкий зв'язок напряму:</h3>
-                            <p class="text-xs text-sage-700 leading-relaxed">
-                                Якщо ви бажаєте одразу узгодити час у месенджері, скористайтеся кнопками:
-                            </p>
-                            <div class="space-y-2.5 pt-1">
-                                <a href="https://t.me/your_telegram" target="_blank" class="w-full py-3 px-4 bg-white border border-sage-200 text-sage-800 font-medium text-xs rounded-xl flex items-center justify-center gap-2 transition hover:bg-sage-50 shadow-sm">
-                                    <span>✈️ Telegram</span>
-                                </a>
-                                <a href="viber://chat?number=%2B380966981294" class="w-full py-3 px-4 bg-white border border-sage-200 text-sage-800 font-medium text-xs rounded-xl flex items-center justify-center gap-2 transition hover:bg-sage-50 shadow-sm">
-                                    <span>💬 Viber</span>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="bg-white p-6 rounded-3xl border border-sage-100 shadow-soft space-y-2 text-xs text-sage-600">
-                            <div class="font-bold text-sage-900 text-sm mb-1">📍 Пам'ятка клієнта:</div>
-                            <p>• <strong>Вартість:</strong> 1200 грн / 50 хв</p>
-                            <p>• <strong>Локація:</strong> Івано-Франківськ, вул. Незалежності, 10А (4-й поверх)</p>
-                            <p>• <strong>Оплата:</strong> за 24 години до зустрічі</p>
-                        </div>
-
-                    </div>
-
                 </div>
 
-            </section>
-        </div>
-
-    </main>
-
-    <!-- ==================== ПІДВАЛ (FOOTER) ==================== -->
-    <footer class="bg-sage-900 text-sage-200 py-12 border-t border-sage-800">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
-            <div class="space-y-3">
-                <div class="text-xl font-serif font-bold text-white">Тетяна</div>
-                <p class="text-xs text-sage-300 leading-relaxed max-w-xs">
-                    Практична психологиня, КПТ-терапевт. Членкиня Української асоціації когнітивно-поведінкової терапії (УАКПТ).
-                </p>
-            </div>
-            <div>
-                <h4 class="font-bold text-white text-sm mb-3">Навігація</h4>
-                <div class="flex flex-col space-y-2 text-xs text-sage-300">
-                    <button onclick="navigateTo('home')" class="text-left hover:text-white transition">Головна</button>
-                    <button onclick="navigateTo('about')" class="text-left hover:text-white transition">Про мене</button>
-                    <button onclick="navigateTo('services')" class="text-left hover:text-white transition">Послуги та ціни</button>
-                    <button onclick="navigateTo('rules')" class="text-left hover:text-white transition">Правила співпраці</button>
-                    <button onclick="navigateTo('contacts')" class="text-left hover:text-white transition">Контакти</button>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-bold text-white text-sm mb-3">Контакти</h4>
-                <div class="space-y-1.5 text-xs text-sage-300">
-                    <p>096 698 12 94</p>
-                    <p>leshchyshyntanya552@gmail.com</p>
-                    <p>м. Івано-Франківськ, вул. Незалежності, 10А</p>
-                </div>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 mt-8 border-t border-sage-800/60 text-center text-xs text-sage-400">
-            © 2026 Тетяна. Усі права захищено.
+    </section>
+
+
+    <!-- ==================== FOOTER ==================== -->
+    <footer class="bg-charcoal-900 text-white py-12 border-t border-charcoal-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+                
+                <div class="text-center md:text-left space-y-1">
+                    <div class="font-serif-heading text-2xl font-bold text-cream-50">Тетяна Лещишин</div>
+                    <div class="text-xs text-beige-300">Психологиня в КПТ та в образно-фокусованому методі</div>
+                    <div class="text-[11px] text-gray-400">м. Івано-Франківськ, вул. Незалежності, 10А</div>
+                </div>
+
+                <div class="flex flex-wrap justify-center space-x-6 text-xs text-gray-300">
+                    <a href="#hero" class="hover:text-white transition-colors">Головна</a>
+                    <a href="#philosophy" class="hover:text-white transition-colors">Про мене</a>
+                    <a href="#requests" class="hover:text-white transition-colors">Запити</a>
+                    <a href="#education" class="hover:text-white transition-colors">Освіта</a>
+                    <a href="#office" class="hover:text-white transition-colors">Кабінет</a>
+                    <a href="#rules" class="hover:text-white transition-colors">Правила</a>
+                    <a href="#contacts" class="hover:text-white transition-colors">Контакти</a>
+                </div>
+
+                <!-- Social Icons in Footer -->
+                <div class="flex items-center space-x-4 text-lg text-beige-300">
+                    <a href="https://t.me/Tanya_Leshchyshyn" target="_blank" class="hover:text-white transition-colors" title="Telegram">
+                        <i class="fa-brands fa-telegram"></i>
+                    </a>
+                    <a href="https://www.instagram.com/tetiana.psychologistt?igsh=MTZwbHhrZGtvajgyZg%3D%3D" target="_blank" class="hover:text-white transition-colors" title="Instagram">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                    <a href="tel:+380966981294" class="hover:text-white transition-colors" title="Телефон">
+                        <i class="fa-solid fa-phone"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="mt-8 pt-6 border-t border-charcoal-800 text-center text-xs text-gray-400">
+                &copy; 2026 Тетяна Лещишин. Всі права захищені.
+            </div>
         </div>
     </footer>
 
-    <!-- ==================== МОДАЛЬНЕ ВІКНО ДЕТАЛЕЙ ЗАПИТУ ==================== -->
-    <div id="queryModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-sage-900/60 backdrop-blur-sm transition-opacity">
-        <div class="bg-white rounded-3xl max-w-2xl w-full p-6 sm:p-8 shadow-card relative space-y-6 max-h-[90vh] overflow-y-auto">
+
+    <!-- ==================== BOOKING MODAL ==================== -->
+    <div id="booking-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden">
+        <!-- Backdrop -->
+        <div onclick="closeBookingModal()" class="fixed inset-0 bg-black/50 backdrop-blur-xs"></div>
+
+        <!-- Modal Box -->
+        <div class="relative bg-white rounded-3xl max-w-lg w-full p-6 sm:p-8 shadow-2xl z-10 modal-content transform scale-95 opacity-0 transition-all duration-300 border border-cream-200">
             
-            <button onclick="closeQueryModal()" class="absolute top-5 right-5 w-9 h-9 rounded-full bg-sage-100 hover:bg-sage-200 text-sage-800 flex items-center justify-center font-bold transition">
-                ✕
+            <button onclick="closeBookingModal()" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 p-2">
+                <i class="fa-solid fa-xmark text-xl"></i>
             </button>
 
-            <div class="flex items-center gap-4">
-                <div id="modalEmoji" class="w-14 h-14 rounded-2xl bg-sage-100 text-sage-800 flex items-center justify-center text-3xl font-bold flex-shrink-0">
-                    🧠
+            <!-- Form View -->
+            <div id="modal-form-view">
+                <div class="mb-6">
+                    <span class="text-xs font-semibold uppercase text-beige-700 tracking-wider">Запис на сесію</span>
+                    <h3 class="font-serif-heading text-2xl font-bold text-charcoal-900 mt-1">Індивідуальна консультація</h3>
+                    <p class="text-xs text-gray-500">Психологиня Тетяна Лещишин • Тривалість: 50 хв</p>
                 </div>
-                <div>
-                    <span class="text-xs font-semibold uppercase tracking-wider text-sage-500">Напрямок терапії</span>
-                    <h3 id="modalTitle" class="text-2xl font-serif font-bold text-sage-900 leading-tight">Заголовок</h3>
-                </div>
+
+                <form onsubmit="handleModalSubmit(event)" class="space-y-4">
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">Ваше ім'я *</label>
+                        <input type="text" required placeholder="Як до вас звертатися?" class="w-full px-4 py-3 bg-cream-50 border border-cream-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-beige-700/30 text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">Телефон або Telegram *</label>
+                        <input type="text" required placeholder="+380... або @username" class="w-full px-4 py-3 bg-cream-50 border border-cream-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-beige-700/30 text-sm">
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">Формат проведення</label>
+                        <select class="w-full px-4 py-3 bg-cream-50 border border-cream-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-beige-700/30 text-sm text-gray-700">
+                            <option>Онлайн (Google Meet / Zoom)</option>
+                            <option>Кабінет в Івано-Франківську (вул. Незалежності, 10А)</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-xs font-semibold text-gray-600 mb-1">Коментар або зручний час</label>
+                        <textarea rows="2" placeholder="Наприклад: Перша половина дня у вівторок" class="w-full px-4 py-3 bg-cream-50 border border-cream-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-beige-700/30 text-sm"></textarea>
+                    </div>
+
+                    <div class="pt-2">
+                        <button type="submit" class="w-full bg-beige-700 hover:bg-beige-800 text-white font-medium py-3.5 rounded-full text-base transition-all shadow-md">
+                            Записатися
+                        </button>
+                    </div>
+                </form>
             </div>
 
-            <div id="modalContent" class="space-y-4 text-sm text-sage-700 leading-relaxed border-t border-sage-100 pt-4">
-                <!-- Динамічний вміст -->
-            </div>
-
-            <div class="pt-4 border-t border-sage-100 flex items-center justify-between gap-4">
-                <p class="text-xs text-sage-500">Бажаєте проконсультуватися з цього приводу?</p>
-                <button onclick="closeQueryModal(); navigateTo('booking');" class="px-6 py-3 bg-sage-600 hover:bg-sage-700 text-white font-semibold rounded-xl text-sm transition">
-                    Записатися
+            <!-- Success View -->
+            <div id="modal-success-view" class="hidden text-center py-8 space-y-4">
+                <div class="w-16 h-16 bg-emerald-100 text-emerald-700 rounded-full flex items-center justify-center mx-auto text-2xl">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h3 class="font-serif-heading text-2xl font-bold text-charcoal-900">Дякую! Заявку прийнято</h3>
+                <p class="text-gray-600 text-sm max-w-xs mx-auto">
+                    Я зв'яжуся з вами найближчим часом у месенджері або за телефоном.
+                </p>
+                <button onclick="closeBookingModal()" class="bg-beige-700 text-white px-8 py-2.5 rounded-full text-sm font-medium hover:bg-beige-800 transition-all">
+                    Зрозуміло
                 </button>
             </div>
 
         </div>
     </div>
 
-    <!-- ==================== МОДАЛЬНЕ ВІКНО ПІДТВЕРДЖЕННЯ ЗАПИСУ ==================== -->
-    <div id="successModal" class="fixed inset-0 z-50 hidden items-center justify-center p-4 bg-sage-900/60 backdrop-blur-sm">
-        <div class="bg-white rounded-3xl max-w-md w-full p-8 text-center shadow-card space-y-4">
-            <div class="w-16 h-16 bg-sage-100 text-sage-700 rounded-full flex items-center justify-center mx-auto text-3xl">
-                ✓
-            </div>
-            <h3 class="text-2xl font-serif font-bold text-sage-900">Заявку прийнято!</h3>
-            <p class="text-sm text-sage-600 leading-relaxed">
-                Дякую за звернення. Я зв'яжуся з вами найближчим часом для узгодження часу консультації.
-            </p>
-            <button onclick="closeSuccessModal()" class="w-full py-3.5 bg-sage-600 hover:bg-sage-700 text-white font-semibold rounded-xl transition text-sm">
-                Зрозуміло
+
+    <!-- ==================== LIGHTBOX MODAL ==================== -->
+    <div id="lightbox-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 hidden bg-black/80 backdrop-blur-xs" onclick="closeLightbox()">
+        <div class="relative max-w-4xl w-full max-h-[90vh] flex flex-col items-center justify-center" onclick="event.stopPropagation()">
+            <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white hover:text-gray-300 text-2xl">
+                <i class="fa-solid fa-xmark"></i>
             </button>
+            <img id="lightbox-img" src="" alt="Перегляд" class="max-h-[80vh] w-auto max-w-full rounded-2xl shadow-2xl object-contain">
+            <p id="lightbox-caption" class="text-white text-sm font-medium mt-4 text-center"></p>
         </div>
     </div>
 
-    <!-- ==================== JAVASCRIPT ЛОГІКА ==================== -->
+
+    <!-- ==================== TOAST NOTIFICATION ==================== -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-charcoal-900 text-white px-6 py-3 rounded-2xl shadow-xl flex items-center space-x-3 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none border border-charcoal-800">
+        <i class="fa-solid fa-circle-check text-emerald-400"></i>
+        <span id="toast-message" class="text-sm font-medium">Заявку успішно надіслано</span>
+    </div>
+
+
+    <!-- ==================== JAVASCRIPT LOGIC ==================== -->
     <script>
-        // Блок даних 9 напрямків роботи
-        const queriesData = {
-            gtr: {
-                emoji: '🧠',
-                title: 'ГТР та надмірні переживання',
-                text: `<p><strong>З чим ми працюємо:</strong> Генералізований тривожний розлад, постійне очікування найгіршого, катастрофізація подій, "тривога щодо здоров'я", тривала м'язова напруга та тривожні думки.</p>
-                       <p><strong>Як допомагає КПТ:</strong> Навчимося виявляти та перевіряти на реалістичність когнітивні викривлення, опануємо техніки релаксації та поступово знизимо рівень фонового стресу.</p>`
-            },
-            phobia: {
-                emoji: '🎯',
-                title: 'Фобії та специфічні страхи',
-                text: `<p><strong>З чим ми працюємо:</strong> Страхи конкретних ситуацій чи об'єктів (висота, замкнений простір, перельоти, медичні маніпуляції), що змушують будувати маршрути уникнення.</p>
-                       <p><strong>Як допомагає КПТ:</strong> Застосовується градуйована експозиційна терапія, яка безпечно допомагає мозку подолати асоціацію між тригером і панічною небезпекою.</p>`
-            },
-            panic: {
-                emoji: '⚡',
-                title: 'Панічний розлад і панічні атаки',
-                text: `<p><strong>З чим ми працюємо:</strong> Раптові хвилі страху, супроводжувані тахікардією, запамороченням, відчуттям браку повітря та острахом втратити свідомість чи контроль над тілом.</p>
-                       <p><strong>Як допомагає КПТ:</strong> Розуміння фізіології паніки, декатастрофізація тілесних симптомів, дихальні техніки та розрив "хибного кола" панічного нападу.</p>`
-            },
-            depression: {
-                emoji: '🌧️',
-                title: 'Депресивні стани та апатія',
-                text: `<p><strong>З чим ми працюємо:</strong> Втрата сил, задоволення та інтересу до життя, самокритика, відчуття безпорадності, провини та низький рівень енергії.</p>
-                       <p><strong>Як допомагає КПТ:</strong> Поведінкова активація, відновлення щоденного ресурсу покроковими мікро-діями, трансформація негативних глибинних переконань про себе.</p>`
-            },
-            grief: {
-                emoji: '🕊️',
-                title: 'Переживання втрати та горювання',
-                text: `<p><strong>З чим ми працюємо:</strong> Біль від втрати близької людини, розриву стосунків, втрати домівки чи звичного життя. Складності в адаптації до нових обставин.</p>
-                       <p><strong>Як допомагає КПТ:</strong> Дбайливий та дбайливий супровід на всіх стадіях горювання, пошук нових опор та інтеграція важкого досвіду.</p>`
-            },
-            social: {
-                emoji: '🗣️',
-                title: 'Соціальні навички та впевненість',
-                text: `<p><strong>З чим ми працюємо:</strong> Страх оцінки та засудження іншими, скутість у спілкуванні, сором'язливість, страх виступів та синдром самозванця.</p>
-                       <p><strong>Як допомагає КПТ:</strong> Дослідження "соціального прожектора", формування навичок самоспівчуття (self-compassion) та поведінкові експерименти.</p>`
-            },
-            boundaries: {
-                emoji: '🛡️',
-                title: 'Формування особистих кордонів',
-                text: `<p><strong>З чим ми працюємо:</strong> Труднощі зі словами «ні», постійне догоджання іншим у збиток собі, співзалежні паттерни у стосунках, терпіння неналежного ставлення.</p>
-                       <p><strong>Як допомагає КПТ:</strong> Навички асертивної (впевненої та екологічної) комунікації, усвідомлення власних цінностей та захист власного ресурсу.</p>`
-            },
-            emotion: {
-                emoji: '🌊',
-                title: 'Розуміння та регуляція емоцій',
-                text: `<p><strong>З чим ми працюємо:</strong> Надмірні спалахи гніву, емоційні качелі, або навпаки — придушення ("заморожування") почуттів та складнощі у розпізнаванні своїх потреб.</p>
-                       <p><strong>Як допомагає КПТ:</strong> Розвиток емоційного інтелекту, техніки регуляції афекту, робота з Образно-фокусованою КПТ для опрацювання першопричин.</p>`
-            },
-            burnout: {
-                emoji: '🔋',
-                title: 'Стрес та емоційне виснаження',
-                text: `<p><strong>З чим ми працюємо:</strong> Професійне та емоційне вигорання, фізична втома навіть після відпочинку, тривалий стрес та розмиті кордони між роботою і відпочинком.</p>
-                       <p><strong>Як допомагає КПТ:</strong> Перегляд перфекціоністських установок, вибудовування здорової гігієни праці та повернення балансу у життя.</p>`
-            }
-        };
-
-        // Ініціалізація
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-
-            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (mobileMenuBtn && mobileMenu) {
-                mobileMenuBtn.addEventListener('click', () => {
-                    mobileMenu.classList.toggle('hidden');
-                });
-            }
-        });
-
-        // SPA Навігація
-        function navigateTo(pageId) {
-            const pages = document.querySelectorAll('.page-content');
-            pages.forEach(p => p.classList.remove('active'));
-
-            const targetPage = document.getElementById(`page-${pageId}`);
-            if (targetPage) {
-                targetPage.classList.add('active');
-            }
-
-            const links = document.querySelectorAll('.nav-link');
-            links.forEach(link => {
-                if (link.getAttribute('data-page') === pageId) {
-                    link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
-                }
-            });
-
-            const mobileMenu = document.getElementById('mobileMenu');
-            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+        // Toggle Mobile Navigation Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
         }
 
-        function scrollToSection(id) {
-            const el = document.getElementById(id);
-            if (el) {
-                el.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
+        // Open Booking Modal
+        function openBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            const formView = document.getElementById('modal-form-view');
+            const successView = document.getElementById('modal-success-view');
 
-        // Логіка Трикутника КПТ
-        function setTriangleTab(tabKey) {
-            const tabs = ['thoughts', 'emotions', 'behavior'];
-            tabs.forEach(t => {
-                const btn = document.getElementById(`tab-${t}`);
-                if (t === tabKey) {
-                    btn.classList.add('active');
-                    btn.classList.remove('bg-white', 'text-sage-700');
-                } else {
-                    btn.classList.remove('active');
-                    btn.classList.add('bg-white', 'text-sage-700');
-                }
-            });
+            formView.classList.remove('hidden');
+            successView.classList.add('hidden');
 
-            const contentMap = {
-                thoughts: `
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-700 font-bold flex items-center justify-center flex-shrink-0">💭</div>
-                        <div>
-                            <h4 class="font-bold text-sage-900 text-sm">Автоматичні думки (Thoughts)</h4>
-                            <p class="text-xs text-sage-500">Наші миттєві інтерпретації ситуації</p>
-                        </div>
-                    </div>
-                    <p class="text-xs sm:text-sm text-sage-700 leading-relaxed italic">
-                        Приклад: «Колега не відповів на моє привітання, отже, я чимось його образив». Ця думка спалахує миттєво.
-                    </p>`,
-                emotions: `
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-700 font-bold flex items-center justify-center flex-shrink-0">💓</div>
-                        <div>
-                            <h4 class="font-bold text-sage-900 text-sm">Емоції та Тіло (Emotions & Body)</h4>
-                            <p class="text-xs text-sage-500">Фізичний та емоційний відгук на думку</p>
-                        </div>
-                    </div>
-                    <p class="text-xs sm:text-sm text-sage-700 leading-relaxed italic">
-                        Реакція: Виникає відчуття тривоги, стиснення у грудях та хвилювання.
-                    </p>`,
-                behavior: `
-                    <div class="flex items-center gap-3">
-                        <div class="w-10 h-10 rounded-xl bg-sage-100 text-sage-700 font-bold flex items-center justify-center flex-shrink-0">🏃‍♂️</div>
-                        <div>
-                            <h4 class="font-bold text-sage-900 text-sm">Поведінка (Behavior)</h4>
-                            <p class="text-xs text-sage-500">Дії під впливом емоції</p>
-                        </div>
-                    </div>
-                    <p class="text-xs sm:text-sm text-sage-700 leading-relaxed italic">
-                        Результат: Людина починає уникати контакту з колегою. У КПТ ми вчимося розривати це заповнене коло.
-                    </p>`
-            };
-
-            document.getElementById('triangleContent').innerHTML = contentMap[tabKey];
-        }
-
-        // Логіка квізу
-        let quizState = { 1: null, 2: null, 3: null };
-
-        function answerQuiz(step, val) {
-            quizState[step] = val;
-            document.getElementById(`quizStep${step}`).classList.add('hidden');
-            document.getElementById(`quizStep${step + 1}`).classList.remove('hidden');
-        }
-
-        function finishQuiz(val) {
-            quizState[3] = val;
-            document.getElementById('quizStep3').classList.add('hidden');
-            document.getElementById('quizResult').classList.remove('hidden');
-        }
-
-        function resetQuiz() {
-            quizState = { 1: null, 2: null, 3: null };
-            document.getElementById('quizResult').classList.add('hidden');
-            document.getElementById('quizStep1').classList.remove('hidden');
-        }
-
-        // Модальне вікно запитів
-        function openQueryModal(key) {
-            const item = queriesData[key];
-            if (!item) return;
-
-            document.getElementById('modalEmoji').textContent = item.emoji;
-            document.getElementById('modalTitle').textContent = item.title;
-            document.getElementById('modalContent').innerHTML = item.text;
-
-            const modal = document.getElementById('queryModal');
             modal.classList.remove('hidden');
-            modal.classList.add('flex');
+            setTimeout(() => {
+                modal.querySelector('.modal-content').classList.remove('scale-95', 'opacity-0');
+                modal.querySelector('.modal-content').classList.add('scale-100', 'opacity-100');
+            }, 10);
         }
 
-        function closeQueryModal() {
-            const modal = document.getElementById('queryModal');
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
+        // Close Booking Modal
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            const modalContent = modal.querySelector('.modal-content');
+            
+            modalContent.classList.remove('scale-100', 'opacity-100');
+            modalContent.classList.add('scale-95', 'opacity-0');
+            
+            setTimeout(() => {
+                modal.classList.add('hidden');
+            }, 300);
         }
 
-        // FAQ Аккордеон
-        function toggleFaq(btn) {
-            const answer = btn.nextElementSibling;
-            const icon = btn.querySelector('.faq-icon');
+        // Handle Modal Form Submit
+        function handleModalSubmit(e) {
+            e.preventDefault();
+            document.getElementById('modal-form-view').classList.add('hidden');
+            document.getElementById('modal-success-view').classList.remove('hidden');
+        }
 
-            if (answer.classList.contains('hidden')) {
-                answer.classList.remove('hidden');
-                icon.textContent = '−';
+        // Handle Inline Contact Form Submit
+        function handleInlineSubmit(e) {
+            e.preventDefault();
+            showToast('Дякуємо! Ваше повідомлення надіслано.');
+            e.target.reset();
+        }
+
+        // Accordion Toggle Logic
+        function toggleFaq(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+            
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.classList.add('rotate-180');
             } else {
-                answer.classList.add('hidden');
-                icon.textContent = '+';
+                content.classList.add('hidden');
+                icon.classList.remove('rotate-180');
             }
         }
 
-        // Утиліта копіювання в буфер
-        function copyToClipboard(text, successMsg) {
-            const tempInput = document.createElement('input');
-            tempInput.value = text;
-            document.body.appendChild(tempInput);
-            tempInput.select();
-            document.execCommand('copy');
-            document.body.removeChild(tempInput);
+        // Lightbox Image Popup Logic
+        function openLightbox(src, caption = '') {
+            const lightbox = document.getElementById('lightbox-modal');
+            const img = document.getElementById('lightbox-img');
+            const cap = document.getElementById('lightbox-caption');
 
-            showToast(successMsg);
+            img.src = src;
+            cap.textContent = caption;
+            lightbox.classList.remove('hidden');
         }
 
-        // Toast сповіщення
-        function showToast(msg) {
+        function closeLightbox() {
+            document.getElementById('lightbox-modal').classList.add('hidden');
+        }
+
+        // Toast Notification Helper
+        function showToast(message) {
             const toast = document.getElementById('toast');
-            document.getElementById('toastMessage').textContent = msg;
+            const toastMessage = document.getElementById('toast-message');
+            toastMessage.textContent = message;
 
             toast.classList.remove('translate-y-20', 'opacity-0');
             toast.classList.add('translate-y-0', 'opacity-100');
@@ -1536,23 +1039,28 @@
             setTimeout(() => {
                 toast.classList.remove('translate-y-0', 'opacity-100');
                 toast.classList.add('translate-y-20', 'opacity-0');
-            }, 3000);
+            }, 3500);
         }
 
-        // Обробник форм запису
-        function handleBookingSubmit(e) {
-            e.preventDefault();
-            const modal = document.getElementById('successModal');
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-        }
+        // Active Link Highlight on Scroll
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPos = window.scrollY + 120;
 
-        function closeSuccessModal() {
-            const modal = document.getElementById('successModal');
-            modal.classList.remove('flex');
-            modal.classList.add('hidden');
-            navigateTo('home');
-        }
+            sections.forEach(section => {
+                const top = section.offsetTop;
+                const height = section.offsetHeight;
+                const id = section.getAttribute('id');
+                const link = document.querySelector(`.nav-link[href="#${id}"]`);
+
+                if (link) {
+                    if (scrollPos >= top && scrollPos < top + height) {
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
+                    }
+                }
+            });
+        });
     </script>
 </body>
 </html>
